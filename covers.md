@@ -26,6 +26,8 @@ No los renombro ahora porque tendría que actualizar los enlaces, y tampoco quie
 
 ---
 
+<section aria-label="Entre La Tierra y El Cielo">
+
 ## Entre La Tierra y El Cielo
 
 Esta es una canción icónica de Los Nocheros, otros grandes del folclore en Argentina. Sí, se me dio mucho por el folclore.
@@ -42,7 +44,11 @@ La chica que me quitó el tercer lugar cantó esta canción, y bueno, mi parte m
 
 Sería raro pero, si ese es el caso, podés [descargar Entre La Tierra y El Cielo desde acá](https://archive.org/download/MisCovers-543287/Los%20Nocheros%20-%20Entre%20La%20Tierra%20y%20El%20Cielo%20%282025%29.mp3).
 
+</section>
+
 ---
+
+<section aria-label="Zamba de Usted">
 
 ## Zamba de Usted
 
@@ -60,7 +66,11 @@ La instrumental es medio pelo, pero bueno, es lo que hay. Tal vez la regrabe con
 
 Sería raro pero, si ese es el caso, podés [descargar Zamba de Usted desde acá](https://archive.org/download/MisCovers-543287/Raly%20Barrionuevo%20-%20Zamba%20de%20Usted%20%282025%29.mp3).
 
+</section>
+
 ---
+
+<section aria-label="Plegaria Para Un Niño Dormido">
 
 ## Plegaria Para Un Niño Dormido
 
@@ -76,7 +86,11 @@ Espero, de verdad, que les guste esta modesta Plegaria Para Un Niño Dormido.
 
 Sería raro pero, si ese es el caso, podés [descargar Plegaria Para Un Niño Dormido desde acá](https://archive.org/download/MisCovers-543287/Almendra%20-%20Plegaria%20Para%20Un%20Ni%C3%B1o%20Dormido%20%282025%29.mp3).
 
+</section>
+
 ---
+
+<section aria-label="Zamba Para Olvidar">
 
 ## Zamba Para Olvidar
 
@@ -90,7 +104,11 @@ Esta canción fue cantada por mil personas, pero el karaoke utilizado pertenece 
 
 Sería raro pero, si ese es el caso, podés [descargar Zamba Para Olvidar desde acá](https://archive.org/download/MisCovers-543287/Mercedes%20Sosa%20-%20Zamba%20para%20olvidar%20%282025%29.mp3).
 
+</section>
+
 ---
+
+<section aria-label="La Última Vez">
 
 ## La Última Vez
 
@@ -112,7 +130,11 @@ Todo esto lo pensaba, en parte, el señor Franco Escamilla; y así, compuso esta
 
 Sería raro pero, si ese es el caso, podés [descargar La Última Vez desde acá](https://archive.org/download/MisCovers-543287/Franco%20Escamilla%20-%20La%20%C3%9Altima%20Vez%20%282024%29.mp3).
 
+</section>
+
 ---
+
+<section aria-label="Puño de Diamantes">
 
 ## Puño de Diamantes
 
@@ -130,7 +152,11 @@ Ahora que me pongo a pensar, la grabé el mismo día que “La Última Vez”, a
 
 Sería raro pero, si ese es el caso, podés [descargar Puño de Diamantes desde acá](https://archive.org/download/MisCovers-543287/Carolina%20Ros%20-%20Pu%C3%B1o%20de%20Diamantes%20%282024%29.mp3).
 
+</section>
+
 ---
+
+<section aria-label="Río Hermano">
 
 ## Río Hermano
 
@@ -146,7 +172,11 @@ Esta chacarera, de Jorge Rojas, lo explica muy bien.
 
 Sería raro pero, si ese es el caso, podés [descargar Río Hermano desde acá](https://archive.org/download/MisCovers-543287/Jorge%20Rojas%20-%20R%C3%ADo%20Hermano%20%282024%29.mp3).
 
+</section>
+
 ---
+
+<section aria-label="Aunque No Te Pueda Ver">
 
 ## Aunque No Te Pueda Ver
 
@@ -164,7 +194,11 @@ Esta canción de Álex Ubago la canté por petición de una chica de entonces. P
 
 Sería raro pero, si ese es el caso, podés [descargar Aunque No Te Pueda Ver desde acá](https://archive.org/download/MisCovers-543287/%C3%81lex%20Ubago%20-%20Aunque%20No%20Te%20Pueda%20Ver%20%282024%29.mp3).
 
+</section>
+
 ---
+
+<section aria-label="Ese No Era Yo">
 
 ## Ese No Era Yo
 
@@ -179,6 +213,8 @@ Hace muchos años la grabé, pero sonaba saturadísima, mal mezclada… todo pé
 ¿Te gustó?
 
 Sería raro pero, si ese es el caso, podés [descargar Ese No Era Yo desde acá](https://archive.org/download/MisCovers-543287/Franco%20Escamilla%20-%20Ese%20NO%20Era%20Yo%20%282024%29.mp3).
+
+</section>
 
 ---
 
