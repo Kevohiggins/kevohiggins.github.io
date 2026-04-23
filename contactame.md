@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Contactame
-Order: 7
+order: 7
 ---
 
 # ¡Contactame!
