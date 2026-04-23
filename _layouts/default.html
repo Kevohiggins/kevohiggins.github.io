@@ -13,20 +13,20 @@
     </a>
 
     <nav aria-label="Menú principal">
-      <ul style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;">
-        {% assign p_ordenadas = site.pages | sort: 'order' %}
-        {% for p in p_ordenadas %}
-          {% if p.title and p.nav_exclude != true %}
-            <li>
-              <a href="{{ p.url | relative_url }}" 
-                 {% if p.url == page.url %} aria-current="page" style="font-weight: bold;" {% endif %}>
-                {{ p.title }}
-              </a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </nav>
+  <ul style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;">
+    {% assign paginas_ordenadas = site.pages | sort: "order" %}
+    {% for p in paginas_ordenadas %}
+      {% if p.title and p.nav_exclude != true %}
+        <li>
+          <a href="{{ p.url | relative_url }}" 
+             {% if p.url == page.url %} aria-current="page" style="font-weight: bold;" {% endif %}>
+            {{ p.title }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
   </header>
 
   <hr>
