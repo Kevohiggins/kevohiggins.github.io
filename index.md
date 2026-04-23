@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Inicio
+order: 1
 ---
 
 # ¡Bienvenida/o!
