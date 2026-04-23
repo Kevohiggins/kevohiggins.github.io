@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Mod de Lector de Pantalla para DDLC Plus
+title: Mod de accesibilidad para DDLC Plus
 order: 6
 ---
 

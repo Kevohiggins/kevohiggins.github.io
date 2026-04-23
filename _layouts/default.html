@@ -14,16 +14,16 @@
 
     <nav aria-label="Menú principal">
   <ul style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;">
-    {% assign paginas = site.pages | where_exp: "item", "item.order" %}
-    {% assign ordenadas = paginas | sort: "order" %}
-    
-    {% for p in ordenadas %}
-      <li>
-        <a href="{{ p.url | relative_url }}" 
-           {% if p.url == page.url %} aria-current="page" style="font-weight: bold;" {% endif %}>
-          {{ p.title }}
-        </a>
-      </li>
+    {% assign todas_las_paginas = site.pages | sort: "order" %}
+    {% for p in todas_las_paginas %}
+      {% if p.title and p.nav_exclude != true %}
+        <li>
+          <a href="{{ p.url | relative_url }}" 
+             {% if p.url == page.url %} aria-current="page" style="font-weight: bold;" {% endif %}>
+            {{ p.title }}
+          </a>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </nav>
