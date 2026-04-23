@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <header role="banner">
+    <a href="{{ '/' | relative_url }}" style="font-size: 2.5em; font-weight: bold; text-decoration: none; display: block; margin-bottom: 10px;">
+      {{ site.title }}
+    </a>
+
+    <nav aria-label="Menú principal">
+      <ul style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;">
+        {% assign p_ordenadas = site.pages | sort: 'order' %}
+        {% for p in p_ordenadas %}
+          {% if p.title and p.nav_exclude != true %}
+            <li>
+              <a href="{{ p.url | relative_url }}" 
+                 {% if p.url == page.url %} aria-current="page" style="font-weight: bold;" {% endif %}>
+                {{ p.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+
+  <hr>
+
+  <main role="main" aria-label="Contenido principal">
+    {{ content }}
+  </main>
+
+  <footer role="contentinfo" style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px;">
+    <p>Kevin O'Higgins - 2026</p>
+  </footer>
+
+</body>
+</html>
