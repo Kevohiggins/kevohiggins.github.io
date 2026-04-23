@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Mis Covers
-Order: 2
+order: 2
 ---
 
 # Mis Covers
@@ -36,7 +36,7 @@ La chica que me quitó el tercer lugar cantó esta canción, y bueno, mi parte m
 
 ### Escucha y descarga
 
-<audio controls src="https://archive.org/download/MisCovers-543287/Los%20Nocheros%20-%20Entre%20La%20Tierra%20y%20El%20Cielo%20%282025%29.mp3"></audio>
+<audio aria-label="reproductor de audio" controls src="https://archive.org/download/MisCovers-543287/Los%20Nocheros%20-%20Entre%20La%20Tierra%20y%20El%20Cielo%20%282025%29.mp3"></audio>
 
 ¿Te gustó?
 
@@ -54,7 +54,7 @@ La instrumental es medio pelo, pero bueno, es lo que hay. Tal vez la regrabe con
 
 ### Escucha y descarga
 
-<audio controls src="https://archive.org/download/MisCovers-543287/Raly%20Barrionuevo%20-%20Zamba%20de%20Usted%20%282025%29.mp3"></audio>
+<audio aria-label="reproductor de audio" controls src="https://archive.org/download/MisCovers-543287/Raly%20Barrionuevo%20-%20Zamba%20de%20Usted%20%282025%29.mp3"></audio>
 
 ¿Te gustó?
 
@@ -70,7 +70,7 @@ Espero, de verdad, que les guste esta modesta Plegaria Para Un Niño Dormido.
 
 ### Escucha y descarga
 
-<audio controls src="https://archive.org/download/MisCovers-543287/Almendra%20-%20Plegaria%20Para%20Un%20Ni%C3%B1o%20Dormido%20%282025%29.mp3"></audio>
+<audio aria-label="reproductor de audio" controls src="https://archive.org/download/MisCovers-543287/Almendra%20-%20Plegaria%20Para%20Un%20Ni%C3%B1o%20Dormido%20%282025%29.mp3"></audio>
 
 ¿Te gustó?
 
@@ -84,7 +84,7 @@ Esta canción fue cantada por mil personas, pero el karaoke utilizado pertenece 
 
 ### Escucha y descarga
 
-<audio controls src="https://archive.org/download/MisCovers-543287/Mercedes%20Sosa%20-%20Zamba%20para%20olvidar%20%282025%29.mp3"></audio>
+<audio aria-label="reproductor de audio" controls src="https://archive.org/download/MisCovers-543287/Mercedes%20Sosa%20-%20Zamba%20para%20olvidar%20%282025%29.mp3"></audio>
 
 ¿Te gustó?
 
@@ -106,7 +106,7 @@ Todo esto lo pensaba, en parte, el señor Franco Escamilla; y así, compuso esta
 
 ### Escucha y descarga
 
-<audio controls src="https://archive.org/download/MisCovers-543287/Franco%20Escamilla%20-%20La%20%C3%9Altima%20Vez%20%282024%29.mp3"></audio>
+<audio aria-label="reproductor de audio" controls src="https://archive.org/download/MisCovers-543287/Franco%20Escamilla%20-%20La%20%C3%9Altima%20Vez%20%282024%29.mp3"></audio>
 
 ¿Te gustó?
 
@@ -124,7 +124,7 @@ Ahora que me pongo a pensar, la grabé el mismo día que “La Última Vez”, a
 
 ### Escucha y descarga
 
-<audio controls src="https://archive.org/download/MisCovers-543287/Carolina%20Ros%20-%20Pu%C3%B1o%20de%20Diamantes%20%282024%29.mp3"></audio>
+<audio aria-label="reproductor de audio" controls src="https://archive.org/download/MisCovers-543287/Carolina%20Ros%20-%20Pu%C3%B1o%20de%20Diamantes%20%282024%29.mp3"></audio>
 
 ¿Te gustó?
 
@@ -140,7 +140,7 @@ Esta chacarera, de Jorge Rojas, lo explica muy bien.
 
 ### Escucha y Descarga
 
-<audio controls src="https://archive.org/download/MisCovers-543287/Jorge%20Rojas%20-%20R%C3%ADo%20Hermano%20%282024%29.mp3"></audio>
+<audio aria-label="reproductor de audio" controls src="https://archive.org/download/MisCovers-543287/Jorge%20Rojas%20-%20R%C3%ADo%20Hermano%20%282024%29.mp3"></audio>
 
 ¿Te gustó?
 
@@ -158,7 +158,7 @@ Esta canción de Álex Ubago la canté por petición de una chica de entonces. P
 
 ### Escucha y descarga
 
-<audio controls src="https://archive.org/download/MisCovers-543287/%C3%81lex%20Ubago%20-%20Aunque%20No%20Te%20Pueda%20Ver%20%282024%29.mp3"></audio>
+<audio aria-label="reproductor de audio" controls src="https://archive.org/download/MisCovers-543287/%C3%81lex%20Ubago%20-%20Aunque%20No%20Te%20Pueda%20Ver%20%282024%29.mp3"></audio>
 
 ¿Te gustó?
 
@@ -174,7 +174,7 @@ Hace muchos años la grabé, pero sonaba saturadísima, mal mezclada… todo pé
 
 ### Escucha y descarga
 
-<audio controls src="https://archive.org/download/MisCovers-543287/Franco%20Escamilla%20-%20Ese%20NO%20Era%20Yo%20%282024%29.mp3"></audio>
+<audio aria-label="reproductor de audio" controls src="https://archive.org/download/MisCovers-543287/Franco%20Escamilla%20-%20Ese%20NO%20Era%20Yo%20%282024%29.mp3"></audio>
 
 ¿Te gustó?
 

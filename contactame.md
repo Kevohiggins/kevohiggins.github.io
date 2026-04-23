@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contacto y Apoyo
+title: Contactame
 Order: 7
 ---
 
