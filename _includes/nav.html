@@ -1,11 +1,15 @@
 <nav aria-label="Menú principal">
-  <ul style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;">
+  <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" class="boton-hamburguesa">
+    Menú ☰
+  </button>
+
+  <ul id="nav-list" class="nav-links" style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;">
     <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
     <li><a href="{{ '/covers/' | relative_url }}">Mis Covers</a></li>
-    <li><a href="{{ '/programas/' | relative_url }}">Programas</a></li>
     <li><a href="{{ '/guias/' | relative_url }}">Guías de texto</a></li>
+    <li><a href="{{ '/programas/' | relative_url }}">Programas</a></li>
     <li><a href="{{ '/textos/' | relative_url }}">Textos</a></li>
-    <li><a href="{{ '/ddlc-plus/' | relative_url }}">Mod de accesibilidad para DDLC Plus</a></li>
+    <li><a href="{{ '/ddlc-plus/' | relative_url }}">Mod de accesibilidad</a></li>
     <li><a href="{{ '/contactame/' | relative_url }}">Contactame</a></li>
   </ul>
 </nav>

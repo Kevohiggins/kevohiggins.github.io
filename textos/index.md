@@ -37,7 +37,7 @@ Si te atrae la idea, podés [leer El Castigo de Sísifo acá](./el-castigo-de-si
 
 ### Lobo (mi cuento más largo hasta la fecha)
 
-En una clase de Análisis y Producción de Textos, hicimos una especie de “test” donde, en teoría, se podría inferir qué raza de perro era más afín con nuestras personalidades. No me preguntes qué fumaba mi profe, yo también creo que es un sinsentido.
+En una clase de Análisis y Producción de Textos, hicimos una especie de “test” donde, en teoría, se podría inferir qué raza de perro era más afín con nuestras personalidades. No me preguntes qué fumaba mi profe, yo también quiero saber.
 
 La cuestión es que, a mí, como no podía ser de otra manera, no me tocó un perro… si no un lobo. Solitario, salvaje, un lobo de las tierras heladas del norte ah. Intenté pensar como tal, y me surgieron algunas cuestiones:
 
