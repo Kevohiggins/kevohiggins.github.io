@@ -1,7 +1,6 @@
 ---
 layout: default
 title: El Castigo de Sísifo
-nav_exclude: true
 ---
 
 # El Castigo de Sísifo
@@ -16,7 +15,7 @@ El humo del cigarrillo flotaba en el aire, una cortina difusa que separaba mi pr
 
 Ensimismado, daba vueltas a mi vaso de whisky cuando sentí la mirada pesada de alguien sobre mí. Ojeé el lugar, buscando la fuente, y me encontré con un anciano que parecía estudiarme detenidamente y, al notar que le devolvía la mirada, se acercó.
 
-Su sobretodo antiguo, de corte elegante pero visiblemente gastado por el tiempo, daba cuenta de innumerables anécdotas. Pero, si algo que realmente llamaba la atención, eran sus ojos. En ellos se reflejaba el peso de la experiencia, una melancolía profunda y la marca de incontables historias.
+Su sobretodo antiguo, de corte elegante pero visiblemente gastado por el tiempo, daba cuenta de innumerables anécdotas. Pero, si algo llamaba la atención, eran sus ojos. En ellos se reflejaba el peso de la experiencia, una melancolía profunda y la marca de incontables historias.
 
 —¿Puedo sentarme? —preguntó.
 

@@ -1,7 +1,6 @@
 ---
 layout: default
 title: ¿Calor o frío?
-nav_exclude: true
 ---
 
 # ¿Calor o frío?

@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Guía de LunaTranslator
-nav_exclude: true
 ---
 
 # Guía: LunaTranslator.

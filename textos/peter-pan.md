@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Peter Pan
-nav_exclude: true
 ---
 
 # Peter Pan

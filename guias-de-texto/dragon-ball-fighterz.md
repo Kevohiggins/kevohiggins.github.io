@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Guía de menús para Dragon Ball FighterZ
-nav_exclude: true
 ---
 
 # Guía de menús para Dragon Ball FighterZ

@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Esdrújulas
-nav_exclude: true
 ---
 
 # Esdrújulas

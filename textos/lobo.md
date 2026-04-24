@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Lobo
-nav_exclude: true
 ---
 
 # Lobo
