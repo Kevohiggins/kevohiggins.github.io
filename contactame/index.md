@@ -25,7 +25,7 @@ Si te gusta lo tradicional, para vos está esto. Llená los campos y dale al bot
 
 Es mi deber ser honesto: posiblemente tu guita termine en algún bar. Pero bueno, si querés pagarme una birra, te dejo los enlaces para hacerlo.
 
-* **Si sos de Argentina:** Podés [donarme por Mercado Pago](https://link.mercadopago.com.ar/kevohiggins){:target="_blank"}.
-* **Si sos de afuera:** Podés [donarme por PayPal](https://www.paypal.me/KevOHiggins){:target="_blank"}.
+* **Si sos de Argentina:** Podés [donarme por Mercado Pago](https://link.mercadopago.com.ar/kevohiggins).
+* **Si sos de afuera:** Podés [donarme por PayPal](https://www.paypal.me/KevOHiggins).
 
 ¡Gracias por leer!
