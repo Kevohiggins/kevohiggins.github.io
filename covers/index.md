@@ -17,7 +17,14 @@ Estarán ordenadas de manera descendente para que, si añado una, ¡la vean al p
 
 Antes que nada, aclarar que lo aullado aquí pretende ser lo más respetuoso posible para con el trabajo original. Todos los créditos a sus respectivos creadores, yo soy un simple intento de cantante.
 
-Normalmente diría que empieces por el final, porque escucharías desde mi primer cover; pero ahora, gracias a las posibilidades que me da alojar esto en GitHub (recomiendo) si ponés el primer audio, tenés reproducción automática.
+Normalmente diría que empieces por el final, porque escucharías desde mi primer cover; pero ahora, gracias a las posibilidades que me da alojar esto en GitHub (recomiendo) te puedo poner una casilla hermosa acá. Si la activás, empezá desde arriba.
+
+<div style="margin: 20px 0; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+  <label style="cursor: pointer; font-weight: bold;">
+    <input type="checkbox" id="autoPlayCheck" style="transform: scale(1.2); margin-right: 10px;"> 
+    Reproducción automática
+  </label>
+</div>
 
 ---
 
@@ -194,32 +201,45 @@ Si se me ocurre grabar algo, lo encontrarás arriba del todo.
 ¡Suerte!
 
 <script>
-  const setupAudio = () => {
+  const setupAudioLogic = () => {
     const audios = document.querySelectorAll('audio');
-    
+    const autoPlayCheck = document.getElementById('autoPlayCheck');
+
     audios.forEach((audio, index) => {
       // 1. Volumen inicial al 50%
       audio.volume = 0.5;
 
-      // 2. Evitar que suenen varios a la vez
+      // 2. Interferencia: Si uno arranca, los demás se callan
       audio.addEventListener('play', () => {
         audios.forEach(other => {
-          if (other !== audio) other.pause();
+          if (other !== audio) {
+            other.pause();
+            other.currentTime = 0; // Opcional: reinicia el tema si querés
+          }
         });
       });
 
-      // 3. Reproducción continua (el "truco" nuevo)
+      // 3. Reproducción continua condicionada
       audio.addEventListener('ended', () => {
-        const siguiente = audios[index + 1];
-        if (siguiente) {
-          siguiente.play();
-          // Opcional: Scrollear automáticamente al nuevo audio
-          siguiente.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Solo si la casilla está marcada, buscamos el siguiente
+        if (autoPlayCheck && autoPlayCheck.checked) {
+          const siguiente = audios[index + 1];
+          if (siguiente) {
+            // Un pequeño delay de 1 seg para que no sea tan brusco el cambio
+            setTimeout(() => {
+              siguiente.play();
+              siguiente.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1000);
+          }
         }
       });
     });
   };
 
-  setupAudio();
-  window.addEventListener('load', setupAudio);
+  // Ejecutar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupAudioLogic);
+  } else {
+    setupAudioLogic();
+  }
 </script>
