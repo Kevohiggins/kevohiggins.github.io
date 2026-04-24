@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Inicio
-order: 1
 ---
 
 # ¡Bienvenida/o!
@@ -14,7 +13,8 @@ No tiene muchas cosas, de momento. Como podrás observar, está en construcción
 
 ¡Tranqui! ¡A eso voy!
 
-Soy Kevin O’Higgins, **Kev** para algunos. 21 años al momento de escribir esto (nacido en 2003). Me considero un tipo "normal", pero con mil particularidades, como tantos.
+Soy Kevin O’Higgins, **Kev** para algunos. 23 años al momento de escribir esto.
+Me considero un tipo "normal", pero con mil particularidades, como tantos.
 
 ## ¿Por qué no hay imágenes? Esto es una bosta
 
