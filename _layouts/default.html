@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include head.html %}
 </head>
 <body>
 
@@ -11,22 +9,7 @@
     <a href="{{ '/' | relative_url }}" style="font-size: 2.5em; font-weight: bold; text-decoration: none; display: block; margin-bottom: 10px;">
       {{ site.title }}
     </a>
-
-    <nav aria-label="Menú principal">
-  <ul style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;">
-    {% assign paginas_ordenadas = site.pages | sort: "order" %}
-    {% for p in paginas_ordenadas %}
-      {% if p.title and p.nav_exclude != true %}
-        <li>
-          <a href="{{ p.url | replace: '/index.html', '/' | relative_url }}" 
-             {% if p.url == page.url %} aria-current="page" style="font-weight: bold;" {% endif %}>
-            {{ p.title }}
-          </a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</nav>
+    {% include nav.html %}
   </header>
 
   <hr>
@@ -35,9 +18,7 @@
     {{ content }}
   </main>
 
-  <footer role="contentinfo" style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px;">
-    <p>Kevin O'Higgins - 2026</p>
-  </footer>
+  {% include footer.html %}
 
 </body>
 </html>
