@@ -36,12 +36,12 @@ La chica que me quitó el tercer lugar cantó esta canción, y bueno, mi parte m
 ### Escucha y descarga
 
 <section aria-label="Reproductor de audio">
-<audio aria-label="reproductor de audio" controls src="{{ '/assets/audio/Los%20Nocheros%20-%20Entre%20La%20Tierra%20y%20El%20Cielo%20(cover).mp3' | relative_url }}"></audio>
+<audio aria-label="reproductor de audio" controls src="{{ '/covers/Los%20Nocheros%20-%20Entre%20La%20Tierra%20y%20El%20Cielo%20(cover).mp3' | relative_url }}"></audio>
 </section>
 
 ¿Te gustó?
 
-Sería raro pero, si ese es el caso, podés [descargar Entre La Tierra y El Cielo desde acá]({{ '/assets/audio/Los%20Nocheros%20-%20Entre%20La%20Tierra%20y%20El%20Cielo%20(cover).mp3' | relative_url }}).
+Sería raro pero, si ese es el caso, podés [descargar Entre La Tierra y El Cielo desde acá]({{ '/covers/Los%20Nocheros%20-%20Entre%20La%20Tierra%20y%20El%20Cielo%20(cover).mp3' | relative_url }}).
 
 ---
 
@@ -56,12 +56,12 @@ La instrumental es medio pelo, pero bueno, es lo que hay. Tal vez la regrabe con
 ### Escucha y descarga
 
 <section aria-label="Reproductor de audio">
-<audio aria-label="reproductor de audio" controls src="{{ '/assets/audio/Raly%20Barrionuevo%20-%20Zamba%20de%20Usted%20(cover).mp3' | relative_url }}"></audio>
+<audio aria-label="reproductor de audio" controls src="{{ '/covers/Raly%20Barrionuevo%20-%20Zamba%20de%20Usted%20(cover).mp3' | relative_url }}"></audio>
 </section>
 
 ¿Te gustó?
 
-Sería raro pero, si ese es el caso, podés [descargar Zamba de Usted desde acá]({{ '/assets/audio/Raly%20Barrionuevo%20-%20Zamba%20de%20Usted%20(cover).mp3' | relative_url }}).
+Sería raro pero, si ese es el caso, podés [descargar Zamba de Usted desde acá]({{ '/covers/Raly%20Barrionuevo%20-%20Zamba%20de%20Usted%20(cover).mp3' | relative_url }}).
 
 ---
 
@@ -74,12 +74,12 @@ Espero, de verdad, que les guste esta modesta Plegaria Para Un Niño Dormido.
 ### Escucha y descarga
 
 <section aria-label="Reproductor de audio">
-<audio aria-label="reproductor de audio" controls src="{{ '/assets/audio/Almendra%20-%20Plegaria%20Para%20Un%20Niño%20Dormido%20(cover).mp3' | relative_url }}"></audio>
+<audio aria-label="reproductor de audio" controls src="{{ '/covers/Almendra%20-%20Plegaria%20Para%20Un%20Niño%20Dormido%20(cover).mp3' | relative_url }}"></audio>
 </section>
 
 ¿Te gustó?
 
-Sería raro pero, si ese es el caso, podés [descargar Plegaria Para Un Niño Dormido desde acá]({{ '/assets/audio/Almendra%20-%20Plegaria%20Para%20Un%20Niño%20Dormido%20(cover).mp3' | relative_url }}).
+Sería raro pero, si ese es el caso, podés [descargar Plegaria Para Un Niño Dormido desde acá]({{ '/covers/Almendra%20-%20Plegaria%20Para%20Un%20Niño%20Dormido%20(cover).mp3' | relative_url }}).
 
 ---
 
@@ -90,12 +90,12 @@ Esta canción fue cantada por mil personas, pero el karaoke utilizado pertenece 
 ### Escucha y descarga
 
 <section aria-label="Reproductor de audio">
-<audio aria-label="reproductor de audio" controls src="{{ '/assets/audio/Mercedes%20Sosa%20-%20Zamba%20para%20olvidar%20(cover).mp3' | relative_url }}"></audio>
+<audio aria-label="reproductor de audio" controls src="{{ '/covers/Mercedes%20Sosa%20-%20Zamba%20para%20olvidar%20(cover).mp3' | relative_url }}"></audio>
 </section>
 
 ¿Te gustó?
 
-Sería raro pero, si ese es el caso, podés [descargar Zamba Para Olvidar desde acá]({{ '/assets/audio/Mercedes%20Sosa%20-%20Zamba%20para%20olvidar%20(cover).mp3' | relative_url }}).
+Sería raro pero, si ese es el caso, podés [descargar Zamba Para Olvidar desde acá]({{ '/covers/Mercedes%20Sosa%20-%20Zamba%20para%20olvidar%20(cover).mp3' | relative_url }}).
 
 ---
 
@@ -108,12 +108,12 @@ Pero… estaría bueno saber cuándo será la última vez.
 ### Escucha y descarga
 
 <section aria-label="Reproductor de audio">
-<audio aria-label="reproductor de audio" controls src="{{ '/assets/audio/Franco%20Escamilla%20-%20La%20Última%20Vez%20(cover).mp3' | relative_url }}"></audio>
+<audio aria-label="reproductor de audio" controls src="{{ '/covers/Franco%20Escamilla%20-%20La%20Última%20Vez%20(cover).mp3' | relative_url }}"></audio>
 </section>
 
 ¿Te gustó?
 
-Sería raro pero, si ese es el caso, podés [descargar La Última Vez desde acá]({{ '/assets/audio/Franco%20Escamilla%20-%20La%20Última%20Vez%20(cover).mp3' | relative_url }}).
+Sería raro pero, si ese es el caso, podés [descargar La Última Vez desde acá]({{ '/covers/Franco%20Escamilla%20-%20La%20Última%20Vez%20(cover).mp3' | relative_url }}).
 
 ---
 
@@ -126,12 +126,12 @@ La pareja del que canta se va con uno más rico.
 ### Escucha y descarga
 
 <section aria-label="Reproductor de audio">
-<audio aria-label="reproductor de audio" controls src="{{ '/assets/audio/Carolina%20Ros%20-%20Puño%20de%20Diamantes%20(cover).mp3' | relative_url }}"></audio>
+<audio aria-label="reproductor de audio" controls src="{{ '/covers/Carolina%20Ros%20-%20Puño%20de%20Diamantes%20(cover).mp3' | relative_url }}"></audio>
 </section>
 
 ¿Te gustó?
 
-Sería raro pero, si ese es el caso, podés [descargar Puño de Diamantes desde acá]({{ '/assets/audio/Carolina%20Ros%20-%20Puño%20de%20Diamantes%20(cover).mp3' | relative_url }}).
+Sería raro pero, si ese es el caso, podés [descargar Puño de Diamantes desde acá]({{ '/covers/Carolina%20Ros%20-%20Puño%20de%20Diamantes%20(cover).mp3' | relative_url }}).
 
 ---
 
@@ -144,12 +144,12 @@ Esta chacarera, de Jorge Rojas, lo explica muy bien.
 ### Escucha y Descarga
 
 <section aria-label="Reproductor de audio">
-<audio aria-label="reproductor de audio" controls src="{{ '/assets/audio/Jorge%20Rojas%20-%20Río%20Hermano%20(cover).mp3' | relative_url }}"></audio>
+<audio aria-label="reproductor de audio" controls src="{{ '/covers/Jorge%20Rojas%20-%20Río%20Hermano%20(cover).mp3' | relative_url }}"></audio>
 </section>
 
 ¿Te gustó?
 
-Sería raro pero, si ese es el caso, podés [descargar Río Hermano desde acá]({{ '/assets/audio/Jorge%20Rojas%20-%20Río%20Hermano%20(cover).mp3' | relative_url }}).
+Sería raro pero, si ese es el caso, podés [descargar Río Hermano desde acá]({{ '/covers/Jorge%20Rojas%20-%20Río%20Hermano%20(cover).mp3' | relative_url }}).
 
 ---
 
@@ -162,12 +162,12 @@ Sería raro pero, si ese es el caso, podés [descargar Río Hermano desde acá](
 ### Escucha y descarga
 
 <section aria-label="Reproductor de audio">
-<audio aria-label="reproductor de audio" controls src="{{ '/assets/audio/Alex%20Ubago%20-%20Aunque%20No%20Te%20Pueda%20Ver%20(cover).mp3' | relative_url }}"></audio>
+<audio aria-label="reproductor de audio" controls src="{{ '/covers/Alex%20Ubago%20-%20Aunque%20No%20Te%20Pueda%20Ver%20(cover).mp3' | relative_url }}"></audio>
 </section>
 
 ¿Te gustó?
 
-Sería raro pero, si ese es el caso, podés [descargar Aunque No Te Pueda Ver desde acá]({{ '/assets/audio/Alex%20Ubago%20-%20Aunque%20No%20Te%20Pueda%20Ver%20(cover).mp3' | relative_url }}).
+Sería raro pero, si ese es el caso, podés [descargar Aunque No Te Pueda Ver desde acá]({{ '/covers/Alex%20Ubago%20-%20Aunque%20No%20Te%20Pueda%20Ver%20(cover).mp3' | relative_url }}).
 
 ---
 
@@ -180,12 +180,12 @@ Hace muchos años la grabé, pero sonaba saturadísima, mal mezclada… todo pé
 ### Escucha y descarga
 
 <section aria-label="Reproductor de audio">
-<audio aria-label="reproductor de audio" controls src="{{ '/assets/audio/Franco%20Escamilla%20-%20Ese%20NO%20Era%20Yo%20(cover).mp3' | relative_url }}"></audio>
+<audio aria-label="reproductor de audio" controls src="{{ '/covers/Franco%20Escamilla%20-%20Ese%20NO%20Era%20Yo%20(cover).mp3' | relative_url }}"></audio>
 </section>
 
 ¿Te gustó?
 
-Sería raro pero, si ese es el caso, podés [descargar Ese No Era Yo desde acá]({{ '/assets/audio/Franco%20Escamilla%20-%20Ese%20NO%20Era%20Yo%20(cover).mp3' | relative_url }}).
+Sería raro pero, si ese es el caso, podés [descargar Ese No Era Yo desde acá]({{ '/covers/Franco%20Escamilla%20-%20Ese%20NO%20Era%20Yo%20(cover).mp3' | relative_url }}).
 
 ---
 
