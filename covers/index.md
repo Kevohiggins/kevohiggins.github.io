@@ -196,3 +196,9 @@ No hay nada más por acá.
 Si se me ocurre grabar algo, lo encontrarás arriba del todo.
 
 ¡Suerte!
+
+<script>
+  document.querySelectorAll('audio').forEach(audio => {
+    audio.volume = 0.5;
+  });
+</script>
