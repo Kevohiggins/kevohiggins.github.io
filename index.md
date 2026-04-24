@@ -26,6 +26,6 @@ De todas maneras, cierto es que la pereza me lleva a no ponerlas; además… le�
 
 Espero que disfrutes de lo que sea que encuentres por acá.
 
-Si querés decir algo, tenés un [apartado de contacto](./contactame.md), donde podrás descargarte, ya sea recomendándome algo, sugiriendo, o puteándome por no ser **aesthetic**.
+Si querés decir algo, tenés un [apartado de contacto](./contactame/), donde podrás descargarte, ya sea recomendándome algo, sugiriendo, o puteándome por no ser **aesthetic**.
 
 ¡Nos vemos!
