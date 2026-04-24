@@ -1,15 +1,11 @@
 <nav aria-label="Menú principal">
   <ul style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;">
-    {% assign paginas_ordenadas = site.pages | sort: "order" %}
-    {% for p in paginas_ordenadas %}
-      {% if p.title and p.nav_exclude != true %}
-        <li>
-          <a href="{{ p.url | replace: '/index.html', '/' | relative_url }}" 
-             {% if p.url == page.url %} aria-current="page" style="font-weight: bold;" {% endif %}>
-            {{ p.title }}
-          </a>
-        </li>
-      {% endif %}
-    {% endfor %}
+    <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+    <li><a href="{{ '/covers/' | relative_url }}">Mis Covers</a></li>
+    <li><a href="{{ '/programas/' | relative_url }}">Programas</a></li>
+    <li><a href="{{ '/guias/' | relative_url }}">Guías de texto</a></li>
+    <li><a href="{{ '/textos/' | relative_url }}">Textos</a></li>
+    <li><a href="{{ '/ddlc-plus/' | relative_url }}">Mod de accesibilidad para DDLC Plus</a></li>
+    <li><a href="{{ '/contacto/' | relative_url }}">Contactame</a></li>
   </ul>
 </nav>

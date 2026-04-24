@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Guías de texto
-order: 4
 ---
 
 # Guías de texto

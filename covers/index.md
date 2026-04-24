@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Mis Covers
-order: 2
 ---
 
 # Mis Covers

@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Mod de accesibilidad para DDLC Plus
-order: 6
 ---
 
 **Aviso:** Esta es una traducción de [La Página Oficial del Mod](https://justsayori.com). 
