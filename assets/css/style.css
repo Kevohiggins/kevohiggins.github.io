@@ -1,60 +1,47 @@
-/* --- CONFIGURACIÓN TÉCNICA DEL BÚNKER (PALETA CYBER-TECH) --- */
-
+/* --- 1. BASE: MODO NOCHE (Por defecto) --- */
 body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
-  background-color: #0d0d0d; /* Un negro un poco más profundo */
-  color: #d1d1d1; /* Texto principal en Gris Platino (descanso visual) */
+  background-color: #0d0d0d !important; /* Negro Profundo */
+  color: #d1d1d1 !important; /* Gris Platino para el texto */
 }
 
-/* --- TÍTULOS EN AZUL PURPÚREO --- */
+/* Títulos Noche */
 h1, h2, h3 {
-  color: #9d70ff !important; /* Tu color alma */
-  margin-top: 1.5em;
-  font-weight: 600;
+  color: #9d70ff !important; /* Azul Purpúreo */
+  border-bottom: 2px solid #333;
 }
 
-h1 {
-  font-size: 2.5em;
-  border-bottom: 2px solid #9d70ff;
-  padding-bottom: 15px;
-}
-
-/* --- ENLACES EN CIAN ELÉCTRICO --- */
+/* Enlaces Noche */
 a, a:visited {
-  color: #00f5ff !important; /* Contraste neón que resalta los links */
+  color: #00f5ff !important; /* Cian Eléctrico */
   text-decoration: none;
-  transition: 0.3s;
 }
 
-a:hover {
-  color: #ffffff !important;
-  text-decoration: underline;
-  text-shadow: 0 0 8px #00f5ff; /* Un pequeño brillo al pasar el mouse */
+/* --- 2. MODO DÍA (Forzado cuando existe la clase) --- */
+body.modo-dia {
+  background-color: #f5f5f7 !important;
+  color: #222222 !important; /* Texto oscuro bien legible */
 }
 
-nav ul {
-  list-style: none;
-  padding: 20px 0;
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #333;
-  margin-bottom: 30px;
+/* Títulos Día */
+body.modo-dia h1, 
+body.modo-dia h2, 
+body.modo-dia h3 {
+  color: #4b0082 !important; /* Violeta Índigo */
+  border-bottom: 2px solid #4b0082 !important;
 }
 
-footer {
-  margin-top: 60px;
-  padding-top: 30px;
-  border-top: 1px solid #333;
-  font-size: 0.9em;
-  color: #666; /* Gris oscuro para el fondo del búnker */
+/* Enlaces Día */
+body.modo-dia a, 
+body.modo-dia a:visited {
+  color: #0055ff !important; /* Azul Cobalto */
 }
 
-/* --- MENÚ RESPONSIVO --- */
+/* --- 3. MENÚ Y OTROS (Para ambos modos) --- */
 .boton-hamburguesa {
   display: none;
   background: #9d70ff;
@@ -62,7 +49,6 @@ footer {
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -75,38 +61,12 @@ footer {
     background: #1a1a1a;
     padding: 15px !important;
     border-radius: 8px;
-    border: 1px solid #9d70ff;
   }
   .nav-links.abierto { display: flex !important; }
 }
 
-/* --- TEMA DIURNO (VARIACIONES CLARAS) - CORREGIDO PARA QUE SE LEA --- */
-body.modo-dia {
-  background-color: #f5f5f7 !important;
-  
-  /* ESTA LÍNEA ES LA SOLUCIÓN: Texto negro/carbón para lectura fácil */
-  color: #333333 !important; 
-}
-
-body.modo-dia h1, 
-body.modo-dia h2, 
-body.modo-dia h3 {
-  color: #4b0082 !important; /* Violeta Índigo profundo */
-  border-bottom-color: #4b0082 !important;
-}
-
-body.modo-dia a, 
-body.modo-dia a:visited {
-  color: #0055ff !important; /* Azul Cobalto legible */
-}
-
-/* El menú responsivo también necesita amor en modo día */
+/* Ajuste del menú en día */
 body.modo-dia .nav-links {
   background: #e0e0e0 !important;
-  border-color: #4b0082 !important;
-}
-
-body.modo-dia .boton-hamburguesa {
-  background: #4b0082 !important;
-  color: white !important;
+  color: #222 !important;
 }
