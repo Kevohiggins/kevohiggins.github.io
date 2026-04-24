@@ -198,7 +198,17 @@ Si se me ocurre grabar algo, lo encontrarás arriba del todo.
 ¡Suerte!
 
 <script>
-  document.querySelectorAll('audio').forEach(audio => {
-    audio.volume = 0.5;
-  });
+  const setupAudio = () => {
+    const audios = document.querySelectorAll('audio');
+    audios.forEach(audio => {
+      audio.volume = 0.5;
+      audio.addEventListener('play', () => {
+        audios.forEach(other => {
+          if (other !== audio) other.pause();
+        });
+      });
+    });
+  };
+  setupAudio();
+  window.addEventListener('load', setupAudio);
 </script>
