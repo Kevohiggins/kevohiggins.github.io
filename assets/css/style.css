@@ -84,3 +84,37 @@ footer {
     display: flex !important;
   }
 }
+
+/* --- TEMA DIURNO CON ONDA --- */
+body.modo-dia {
+  background-color: #f0f0f5 !important;
+  color: #222 !important;
+}
+
+/* El fondo del menú desplegable para el celular en modo día */
+body.modo-dia .nav-links {
+  background: #e0e0e0 !important;
+}
+
+/* Que los encabezados tengan ese toque Búnker */
+body.modo-dia h1 {
+  color: #4a148c !important;
+  border-bottom: 2px solid #6200ee !important;
+}
+
+/* Los links en el día: violeta vibrante para que no sea aburrido */
+body.modo-dia a {
+  color: #6200ee !important;
+  font-weight: 500;
+}
+
+body.modo-dia a:hover {
+  color: #3700b3 !important;
+  text-decoration: underline;
+}
+
+/* El botón del menú en el día también con color */
+body.modo-dia .boton-hamburguesa {
+  background: #6200ee !important;
+  color: white !important;
+}

@@ -3,7 +3,7 @@ layout: default
 title: Inicio
 ---
 
-# ¡Bienvenida/o!
+<h1 id="saludo-dinamico">¡Bienvenida/o!</h1>
 
 No sé cómo hayas llegado hasta acá, ¡pero este es mi espacio!
 
@@ -28,4 +28,28 @@ Espero que disfrutes de lo que sea que encuentres por acá.
 
 Si querés decir algo, tenés un [apartado de contacto](./contactame/), donde podrás descargarte, ya sea recomendándome algo, sugiriendo, o puteándome por no ser **aesthetic**.
 
-¡Nos vemos!
+¡Que disfrutes de tu estadía!
+
+<script>
+  (function() {
+    const hora = new Date().getHours();
+    const etiqueta = document.getElementById('saludo-dinamico');
+    
+    // Si no encuentra el ID (por si las moscas), que no haga nada
+    if (!etiqueta) return;
+
+    let mensaje = "¡Bienvenida/o!"; // Saludo por defecto
+
+    // Lógica de horarios
+    if (hora >= 5 && hora < 12) {
+      mensaje = "¡Buenos días!";
+    } else if (hora >= 12 && hora < 20) {
+      mensaje = "¡Buenas tardes!";
+    } else {
+      mensaje = "¡Buenas noches!";
+    }
+
+    // Cambiamos el texto del h1
+    etiqueta.textContent = mensaje;
+  })();
+</script>
