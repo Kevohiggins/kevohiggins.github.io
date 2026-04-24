@@ -5,11 +5,11 @@ title: Contactame
 
 # ¡Contactame!
 
-Si entraste acá, imagino que es porque querés conocer más a esta ilustre persona… o porque pasó algo.
+Si entraste acá, imagino que es porque querés conocer más a esta ilustre persona… o porque pasó algo ah.
 
 No importa la razón, realmente; lo que importa es que yo soy alguien que intenta dar varias opciones, dentro de lo posible.
 
-Podés contactarme a través de [Facebook](https://www.facebook.com/profile.php?id=100009080325662), [Twitter (X)](https://x.com/Kevin_OHiggins), o a mi [Instagram](https://www.instagram.com/kev_ohiggins/). Y ya que estamos… seguime, no te cuesta nada.
+Podés contactarme a través de [Facebook](https://www.facebook.com/profile.php?id=100009080325662), [Twitter](https://x.com/Kevin_OHiggins), o a mi [Instagram](https://www.instagram.com/kev_ohiggins/). Y ya que estamos… seguime, no te cuesta nada.
 
 ## Formulario de contacto
 

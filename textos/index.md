@@ -13,8 +13,6 @@ Acá encontrarás mis textos, al menos los que no me da pudor publicar.
 
 Demás está decir que, si escribo algo nuevo, y me gusta, lo agregaré a la lista.
 
-Ahora sí, ¡vamos!
-
 ---
 
 ## Cuentos
@@ -89,4 +87,4 @@ Lo considero decente, pero en su devolución mencionó que, como las palabras es
 
 Oficialmente Es un choque creativo. Soy fiel defensor de que la gente no es idiota, y de que no hace falta ponerles todo tan a la vista. Por ahí estoy equivocado... no lo sé.
 
-Saquen sus conclusiones después de [Leer esdrújulas acá](./esdrujulas.md).
+Sacá tus conclusiones después de [Leer esdrújulas acá](./esdrujulas.md).

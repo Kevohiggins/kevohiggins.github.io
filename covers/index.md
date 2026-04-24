@@ -5,8 +5,6 @@ title: Mis Covers
 
 # Mis Covers
 
-¡Hola!
-
 Descubriste lo más valioso de esta página; y lo es por todas las razones equivocadas.
 
 Como dije en la presentación, soy un intento de cantante, lo que quiere decir que, para variar, debía tener mi apartado de canciones.
