@@ -198,46 +198,4 @@ Si se me ocurre grabar algo, lo encontrarás arriba del todo.
 
 ¡Suerte!
 
-<script>
-  const setupAudioLogic = () => {
-    const audios = document.querySelectorAll('audio');
-    const autoPlayCheck = document.getElementById('autoPlayCheck');
-
-    audios.forEach((audio, index) => {
-      // 1. Volumen inicial al 50%
-      audio.volume = 0.5;
-
-      // 2. Interferencia: Si uno arranca, los demás se callan
-      audio.addEventListener('play', () => {
-        audios.forEach(other => {
-          if (other !== audio) {
-            other.pause();
-            other.currentTime = 0; // Opcional: reinicia el tema si querés
-          }
-        });
-      });
-
-      // 3. Reproducción continua condicionada
-      audio.addEventListener('ended', () => {
-        // Solo si la casilla está marcada, buscamos el siguiente
-        if (autoPlayCheck && autoPlayCheck.checked) {
-          const siguiente = audios[index + 1];
-          if (siguiente) {
-            // Un pequeño delay de 1 seg para que no sea tan brusco el cambio
-            setTimeout(() => {
-              siguiente.play();
-              siguiente.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 1000);
-          }
-        }
-      });
-    });
-  };
-
-  // Ejecutar cuando el DOM esté listo
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupAudioLogic);
-  } else {
-    setupAudioLogic();
-  }
-</script>
+<script src="{{ '/assets/js/audio-engine.js' | relative_url }}"></script>
