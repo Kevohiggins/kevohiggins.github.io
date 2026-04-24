@@ -1,15 +1,16 @@
+/* --- BASE: MODO NOCHE (AZUL PURPÚREO SOBRE NEGRO) --- */
 body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
-  background-color: #121212; /* Un negro mate muy elegante */
-  color: #e0e0e0; /* Gris claro que no encandila */
+  background-color: #121212; /* Negro */
+  color: #9d70ff !important; /* Azul Purpúreo Neón */
 }
 
 h1, h2, h3 {
-  color: #ffffff; /* Títulos bien blancos para que resalten */
+  color: #ffffff !important; /* Blanco */
   margin-top: 1.5em;
   font-weight: 600;
 }
@@ -20,14 +21,15 @@ h1 {
   padding-bottom: 15px;
 }
 
-a {
-  color: #bb86fc; /* Un violeta neón tipo modo oscuro de alta gama */
+/* Enlaces de Noche */
+a, a:visited {
+  color: #bb86fc !important; /* Violeta Eléctrico */
   text-decoration: none;
   transition: 0.3s;
 }
 
 a:hover {
-  color: #cfa9ff; /* Brilla un poquito más al pasar el mouse */
+  color: #ffffff !important;
   text-decoration: underline;
 }
 
@@ -46,74 +48,55 @@ footer {
   padding-top: 30px;
   border-top: 1px solid #333;
   font-size: 0.9em;
-  color: #888;
+  color: #8a63d2; /* Violeta suave */
 }
 
-/* --- Estilos para el Menú del Búnker --- */
-
-/* 1. Por defecto (PC), el botón no existe */
+/* --- MENÚ --- */
 .boton-hamburguesa {
   display: none;
-  background: #333; /* Color oscuro fachero */
+  background: #333;
   color: white;
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
-  font-size: 1.1rem;
   cursor: pointer;
 }
 
-/* 2. Reglas para Celulares (pantallas menores a 768px) */
 @media (max-width: 768px) {
-  .boton-hamburguesa {
-    display: block; /* Acá aparece el botón */
-    margin-bottom: 10px;
-  }
-
+  .boton-hamburguesa { display: block; margin-bottom: 10px; }
   .nav-links {
-    display: none; /* Escondemos los 7 links */
-    flex-direction: column; /* Los ponemos uno abajo del otro */
+    display: none;
+    flex-direction: column;
     gap: 10px !important;
-    background: #444;
+    background: #2a2a2a;
     padding: 15px !important;
     border-radius: 8px;
   }
-
-  /* La clase que agrega el JS cuando tocás el botón */
-  .nav-links.abierto {
-    display: flex !important;
-  }
+  .nav-links.abierto { display: flex !important; }
 }
 
-/* --- TEMA DIURNO CON ONDA --- */
+/* --- TEMA DÍA: AZUL PURPÚREO SOBRE CLARO --- */
 body.modo-dia {
   background-color: #f0f0f5 !important;
-  color: #222 !important;
+  color: #4b0082 !important; /* Azul Purpúreo Profundo (Índigo) */
 }
 
-/* El fondo del menú desplegable para el celular en modo día */
+body.modo-dia h1, 
+body.modo-dia h2, 
+body.modo-dia h3 {
+  color: #4b0082 !important;
+  border-bottom-color: #6200ee !important;
+}
+
+body.modo-dia a, 
+body.modo-dia a:visited {
+  color: #6200ee !important; /* Violeta Intenso */
+}
+
 body.modo-dia .nav-links {
   background: #e0e0e0 !important;
 }
 
-/* Que los encabezados tengan ese toque Búnker */
-body.modo-dia h1 {
-  color: #4a148c !important;
-  border-bottom: 2px solid #6200ee !important;
-}
-
-/* Los links en el día: violeta vibrante para que no sea aburrido */
-body.modo-dia a {
-  color: #6200ee !important;
-  font-weight: 500;
-}
-
-body.modo-dia a:hover {
-  color: #3700b3 !important;
-  text-decoration: underline;
-}
-
-/* El botón del menú en el día también con color */
 body.modo-dia .boton-hamburguesa {
   background: #6200ee !important;
   color: white !important;
