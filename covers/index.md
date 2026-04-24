@@ -15,13 +15,9 @@ Pero como no me gusta que todo sea tan formal, (y tal vez lo estoy siendo) acomp
 
 Estarán ordenadas de manera descendente para que, si añado una, ¡la vean al principio!
 
-Les recomiendo, eso sí, empezar por el final; Todo tiene su por qué.
-
 Antes que nada, aclarar que lo aullado aquí pretende ser lo más respetuoso posible para con el trabajo original. Todos los créditos a sus respectivos creadores, yo soy un simple intento de cantante.
 
-P.D: si van a descargar, renombren los archivos, porque a mí me da paja y me olvidé de cambiarlos antes de subirlos.
-
-No los renombro ahora porque tendría que actualizar los enlaces, y tampoco quiero. Mejor, que quede así, y ustedes hacen el laburo sucio por mí.
+Normalmente recomendaba empezar por el final, porque escucharían desde mi primer cover; pero ahora, gracias a github, si ponen el primer audio, tienen reproducción automática.
 
 ---
 
@@ -200,15 +196,30 @@ Si se me ocurre grabar algo, lo encontrarás arriba del todo.
 <script>
   const setupAudio = () => {
     const audios = document.querySelectorAll('audio');
-    audios.forEach(audio => {
+    
+    audios.forEach((audio, index) => {
+      // 1. Volumen inicial al 50%
       audio.volume = 0.5;
+
+      // 2. Evitar que suenen varios a la vez
       audio.addEventListener('play', () => {
         audios.forEach(other => {
           if (other !== audio) other.pause();
         });
       });
+
+      // 3. Reproducción continua (el "truco" nuevo)
+      audio.addEventListener('ended', () => {
+        const siguiente = audios[index + 1];
+        if (siguiente) {
+          siguiente.play();
+          // Opcional: Scrollear automáticamente al nuevo audio
+          siguiente.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
     });
   };
+
   setupAudio();
   window.addEventListener('load', setupAudio);
 </script>
