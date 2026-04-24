@@ -17,7 +17,7 @@ Estarán ordenadas de manera descendente para que, si añado una, ¡la vean al p
 
 Antes que nada, aclarar que lo aullado aquí pretende ser lo más respetuoso posible para con el trabajo original. Todos los créditos a sus respectivos creadores, yo soy un simple intento de cantante.
 
-Normalmente recomendaba empezar por el final, porque escucharían desde mi primer cover; pero ahora, gracias a github, si ponen el primer audio, tienen reproducción automática.
+Normalmente diría que empieces por el final, porque escucharías desde mi primer cover; pero ahora, gracias a las posibilidades que me da alojar esto en GitHub (recomiendo) si ponés el primer audio, tenés reproducción automática.
 
 ---
 
@@ -27,7 +27,7 @@ Esta es una canción icónica de Los Nocheros, otros grandes del folclore en Arg
 
 Surgió a raíz… de un concurso donde, para ser franco, siento que no se me juzgó adecuadamente.
 
-La chica que me quitó el tercer lugar cantó esta canción, y bueno, mi parte más infantil, y competidora, quiso que… en fin ah.
+La chica que me quitó el tercer lugar cantó esta canción, y bueno, mi parte más infantil y competitiva, quiso que… en fin ah.
 
 ### Escucha y descarga
 
@@ -47,7 +47,7 @@ Esta es una canción de Raly Barrionuevo, un conocido cantante argentino que, en
 
 Fue mi primera grabación con un micrófono nuevo, así que estaba experimentando.
 
-La instrumental es medio pelo, pero bueno, es lo que hay. Tal vez la regrabe con alguna que me guste más, si eso lo sabrán por acá.
+La instrumental es medio pelo, pero bueno, es lo que hay. Tal vez la regrabe con alguna que me guste más, si eso lo sabrás por acá.
 
 ### Escucha y descarga
 
@@ -187,7 +187,7 @@ Sería raro pero, si ese es el caso, podés [descargar Ese No Era Yo desde acá]
 
 ## ¡Ya, ya! ¡Pará de bajar!
 
-No hay nada más por acá.
+No hay nada más.
 
 Si se me ocurre grabar algo, lo encontrarás arriba del todo.
 
