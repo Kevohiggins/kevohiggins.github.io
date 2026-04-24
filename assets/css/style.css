@@ -1,51 +1,50 @@
-/* Estilos básicos para la web de Kevin */
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #1a1a1a; /* Fondo oscuro para que no canse la vista */
-  color: #e0e0e0; /* Letras claras */
+  padding: 40px 20px;
+  background-color: #121212; /* Un negro mate muy elegante */
+  color: #e0e0e0; /* Gris claro que no encandila */
+}
+
+h1, h2, h3 {
+  color: #ffffff; /* Títulos bien blancos para que resalten */
+  margin-top: 1.5em;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5em;
+  border-bottom: 2px solid #333;
+  padding-bottom: 15px;
 }
 
 a {
-  color: #82aaff;
+  color: #bb86fc; /* Un violeta neón tipo modo oscuro de alta gama */
   text-decoration: none;
+  transition: 0.3s;
 }
 
 a:hover {
+  color: #cfa9ff; /* Brilla un poquito más al pasar el mouse */
   text-decoration: underline;
-}
-
-header {
-  border-bottom: 2px solid #333;
-  padding-bottom: 20px;
-  margin-bottom: 30px;
 }
 
 nav ul {
   list-style: none;
-  padding: 0;
+  padding: 20px 0;
   display: flex;
-  gap: 15px;
+  gap: 25px;
   flex-wrap: wrap;
-}
-
-main {
-  min-height: 400px;
+  border-bottom: 1px solid #333;
+  margin-bottom: 30px;
 }
 
 footer {
-  text-align: center;
+  margin-top: 60px;
+  padding-top: 30px;
   border-top: 1px solid #333;
-  margin-top: 50px;
-  padding-top: 20px;
   font-size: 0.9em;
-}
-
-/* Para que las imágenes y videos no se escapen de la pantalla */
-img, iframe {
-  max-width: 100%;
-  height: auto;
+  color: #888;
 }
