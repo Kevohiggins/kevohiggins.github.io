@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mod de accesibilidad para DDLC Plus | Kev O&#39;Higgins</title><link rel="stylesheet" href="/assets/css/style.css"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png"><link rel="manifest" href="/assets/icons/site.webmanifest"><meta property="og:title" content="Mod de accesibilidad para DDLC Plus | Kev O'Higgins"><meta property="og:description" content="Mi búnker personal"><meta property="og:type" content="website"><meta property="og:site_name" content="Kev O'Higgins"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Mod de accesibilidad para DDLC Plus | Kev O'Higgins"></head> <body> <script>
+    // Único script global: Atmósfera día/noche
+    (function() {
+      const hora = new Date().getHours();
+      if (hora >= 5 && hora < 20) {
+        document.body.classList.add('modo-dia');
+      }
+    })();
+  </script> <header role="banner"> <a href="/" style="font-size: 2.5em; font-weight: bold; text-decoration: none; color: inherit; display: block; margin-bottom: 10px;">
+El Búnker de Kevin
+</a> <nav aria-label="Menú principal"> <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" class="boton-hamburguesa">
+Menú ☰
+</button> <ul id="nav-list" class="nav-links" style="list-style: none; padding: 0; display: flex; gap: 15px; flex-wrap: wrap;"> <li><a href="/">Inicio</a></li> <li><a href="/covers/">Mis Covers</a></li> <li><a href="/guias/">Guías de texto</a></li> <li><a href="/programas/">Programas</a></li> <li><a href="/textos/">Textos</a></li> <li><a href="/ddlc-plus/">Mod de accesibilidad (DDLC Plus)</a></li> <li><a href="/contactame/">Contactame (o apoyame)</a></li> </ul> </nav> </header> <hr aria-hidden="true"> <main role="main" aria-label="Contenido principal"> <p><strong>Aviso:</strong> Esta es una traducción de <a href="https://justsayori.com">La Página Oficial del Mod</a>.</p>
+<p><strong>Todos los enlaces son externos</strong> y dirigen a los repositorios oficiales gestionados por los desarrolladores del mod. Mi rol es únicamente el de traductor; creé esta página para ofrecer una versión en español lo más cercana posible a la original.</p>
+<hr>
+<h1 id="mod-de-lector-de-pantalla-para-ddlc-plus">Mod de Lector de Pantalla para DDLC Plus</h1>
+<p>Un mod que te permite disfrutar la experiencia completa de <strong>Doki Doki Literature Club Plus</strong> mediante lectores de pantalla.</p>
+<hr>
+<h2 id="características-del-mod">Características del Mod</h2>
+<ul>
+<li><strong>Soporte Completo de Diálogos:</strong> Todos los diálogos, narración y mensajes del sistema se envían a tu lector con identificación del hablante.</li>
+<li><strong>Navegación por Menús:</strong> Desplazate por el menú principal, configuración, guardado/carga e historias secundarias.</li>
+<li><strong>Minijuego de Poesía:</strong> Jugá con anuncios de selección de palabras y seguimiento de progreso.</li>
+<li><strong>Explorador de Archivos:</strong> Interactuá con el sistema de archivos interno; los archivos se abren en el Bloc de Notas automáticamente.</li>
+<li><strong>Galería e Imágenes:</strong> Descripciones completas para CGs, fondos, bocetos y contenido secreto.</li>
+<li><strong>Historias Secundarias:</strong> Soporte total con navegación clara por capítulos.</li>
+<li><strong>Email y Música:</strong> Acceso completo con anuncios de pistas y estados de reproducción.</li>
+</ul>
+<hr>
+<h2 id="guía-de-instalación">Guía de Instalación</h2>
+<h3 id="paso-1-instalar-melonloader">Paso 1: Instalar MelonLoader</h3>
+<p>Este mod requiere <strong>MelonLoader</strong> para funcionar.</p>
+<ol>
+<li>Descargá el instalador desde <a href="https://github.com/LavaGang/MelonLoader/releases/latest/">GitHub (última versión)</a>.</li>
+<li>Ejecutá <code>MelonLoader.Installer.exe</code>.</li>
+<li>Hacé clic en <strong>SELECT</strong> y buscá la carpeta de instalación del juego.</li>
+<li>Seleccioná el archivo <code>Doki Doki Literature Club Plus.exe</code>.</li>
+<li>Hacé clic en <strong>INSTALL</strong>.</li>
+<li>Iniciá el juego una vez para que se creen las carpetas y luego cerralo.</li>
+</ol>
+<h3 id="paso-2-instalar-el-mod">Paso 2: Instalar el Mod</h3>
+<ol>
+<li>Extraé el ZIP del mod.</li>
+<li>Copiá el archivo <code>DDLCScreenReaderMod.dll</code>.</li>
+<li>Dirigite a la carpeta del juego y abrí la carpeta <code>Mods</code>.</li>
+<li>Pegá el archivo ahí dentro.</li>
+</ol>
+<h3 id="paso-3-configuración-del-portapapeles">Paso 3: Configuración del Portapapeles</h3>
+<p>El mod envía el texto al portapapeles. Es necesario activar la lectura automática. Recomiendo el complemento <a href="https://nvda.es/2023/07/21/autoclip/"><strong>Autoclip</strong> para NVDA</a>.</p>
+<hr>
+<h2 id="atajos-de-teclado">Atajos de Teclado</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Tecla</th><th align="left">Función</th></tr></thead><tbody><tr><td align="left"><strong>R</strong></td><td align="left">Repite la última línea de diálogo.</td></tr><tr><td align="left"><strong>P</strong></td><td align="left">Anuncia la pista actual (Reproductor de música).</td></tr><tr><td align="left"><strong>C</strong></td><td align="left">Informa porcentaje de recolección de datos.</td></tr></tbody></table>
+<hr>
+<h2 id="problemas-conocidos">Problemas Conocidos</h2>
+<p><strong>Configuración de Escritorio:</strong> En la aplicación de escritorio, las opciones de <strong>Resolución</strong> e <strong>Idioma</strong> podrían no anunciarse al enfocarlas.</p>
+<ul>
+<li><strong>Solución:</strong> Usá las flechas izquierda/derecha para cambiar los valores; el cambio sí será anunciado correctamente.</li>
+</ul>
+<hr>
+<h2 id="descarga">Descarga</h2>
+<ul>
+<li><a href="https://github.com/lordluceus/DDLCScreenReaderMod/releases/latest">Descargar Mod (Última versión)</a></li>
+<li><a href="https://github.com/LavaGang/MelonLoader/releases/latest">Descargar MelonLoader</a></li>
+<li><a href="https://store.steampowered.com/app/1388880/Doki_Doki_Literature_Club_Plus/">Comprar DDLC Plus en Steam</a></li>
+</ul>
+<hr>
+<h2 id="necesitás-asistencia">¿Necesitás Asistencia?</h2>
+<p>La asistencia oficial la dan los desarrolladores en inglés.</p>
+<ul>
+<li><a href="https://github.com/lordluceus/DDLCScreenReaderMod/issues">Reportar errores en GitHub</a></li>
+<li><a href="https://github.com/lordluceus/DDLCScreenReaderMod#readme">Leer documentación original (README)</a></li>
+</ul>
+<p>Si querés que yo intente hacer la gestión porque tu inglés es peor que el mío, lo cual veo difícil, usá mi <a href="./contactame.md">formulario de contacto</a>.</p>
+<hr>
+<p><a href="https://github.com/lordluceus/DDLCScreenReaderMod">Ver Proyecto en GitHub</a> | <a href="https://github.com/lordluceus/DDLCScreenReaderMod/releases">Otras Versiones</a></p>
+<p><em>Doki Doki Literature Club y DDLC Plus son propiedad de Team Salvato. Este es un mod de accesibilidad no oficial.</em></p> </main> <footer role="contentinfo" style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; text-align: center;"> <p style="margin-bottom: 5px;"><strong>Kevin O'Higgins</strong> - 2026</p> <nav aria-label="Redes sociales y contacto rápido"> <ul style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px; margin: 10px 0;"> <li><a href="https://www.instagram.com/kev_ohiggins/" target="_blank" rel="noopener">Instagram</a></li> <li><a href="https://x.com/Kevin_OHiggins" target="_blank" rel="noopener">Twitter</a></li> <li><a href="https://www.facebook.com/profile.php?id=100009080325662" target="_blank" rel="noopener">Facebook</a></li> <li><a href="/contactame/">Contacto y Apoyo</a></li> </ul> </nav> <p style="font-size: 0.8em; margin-top: 20px; color: #666;">Sitio creado con Astro.</p> </footer>  <script src="/assets/js/main.js"></script> </body> </html>
