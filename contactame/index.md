@@ -15,7 +15,14 @@ Podés contactarme a través de [Facebook](https://www.facebook.com/profile.php?
 
 Si te gusta lo tradicional, para vos está esto. Llená los campos y dale al botón para que me llegue el mensaje:
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSezZ7bwalKL5fsNHulBHWkf8332QAhwFycJkCZiL5J1DSFI2Q/viewform?embedded=true" width="640" height="761" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+<div class="contenedor-formulario" style="position: relative; overflow: hidden; width: 100%; padding-top: 120%;">
+  <iframe 
+    src="https://docs.google.com/forms/d/e/1FAIpQLSezZ7bwalKL5fsNHulBHWkf8332QAhwFycJkCZiL5J1DSFI2Q/viewform?embedded=true" 
+    style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%; border: none;"
+    title="Formulario de contacto">
+    Cargando…
+  </iframe>
+</div>
 
 ---
 
