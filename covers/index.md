@@ -181,12 +181,12 @@ Hace muchos años la grabé, pero sonaba saturadísima, mal mezclada… todo pé
 ### Escucha y descarga
 
 <section aria-label="Reproductor de audio">
-<audio aria-label="reproductor de audio" controls src="{{ '/covers/Franco%20Escamilla%20-%20Ese%20NO%20Era%20Yo%20(cover).mp3' | relative_url }}"></audio>
+<audio aria-label="reproductor de audio" controls src="{{ '/covers/Franco%20Escamilla%20-%20Ese%20No%20Era%20Yo%20(cover).mp3' | relative_url }}"></audio>
 </section>
 
 ¿Te gustó?
 
-Sería raro pero, si ese es el caso, podés [descargar Ese No Era Yo desde acá]({{ '/covers/Franco%20Escamilla%20-%20Ese%20NO%20Era%20Yo%20(cover).mp3' | relative_url }}).
+Sería raro pero, si ese es el caso, podés [descargar Ese No Era Yo desde acá]({{ '/covers/Franco%20Escamilla%20-%20Ese%20No%20Era%20Yo%20(cover).mp3' | relative_url }}).
 
 ---
 
