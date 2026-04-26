@@ -1,47 +1,43 @@
-/* --- 1. BASE: MODO NOCHE (Por defecto) --- */
+/* --- 1. ATMÓSFERA: NOCHE (Base) --- */
 body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
-  background-color: #0d0d0d !important; /* Negro Profundo */
-  color: #d1d1d1 !important; /* Gris Platino para el texto */
+  background-color: #0d0d0d; 
+  color: #d1d1d1;
 }
 
-/* Títulos Noche */
 h1, h2, h3 {
-  color: #9d70ff !important; /* Azul Purpúreo */
+  color: #9d70ff;
   border-bottom: 2px solid #333;
 }
 
-/* Enlaces Noche */
 a, a:visited {
-  color: #00f5ff !important; /* Cian Eléctrico */
+  color: #00f5ff;
   text-decoration: none;
 }
 
-/* --- 2. MODO DÍA (Forzado cuando existe la clase) --- */
+/* --- 2. ATMÓSFERA: DÍA (Se activa por script de hora) --- */
 body.modo-dia {
-  background-color: #f5f5f7 !important;
-  color: #222222 !important; /* Texto oscuro bien legible */
+  background-color: #f5f5f7;
+  color: #222222;
 }
 
-/* Títulos Día */
 body.modo-dia h1, 
 body.modo-dia h2, 
 body.modo-dia h3 {
-  color: #4b0082 !important; /* Violeta Índigo */
-  border-bottom: 2px solid #4b0082 !important;
+  color: #4b0082;
+  border-bottom: 2px solid #4b0082;
 }
 
-/* Enlaces Día */
 body.modo-dia a, 
 body.modo-dia a:visited {
-  color: #0055ff !important; /* Azul Cobalto */
+  color: #0055ff;
 }
 
-/* --- 3. MENÚ Y OTROS (Para ambos modos) --- */
+/* --- 3. COMPONENTES (Menú y adaptaciones) --- */
 .boton-hamburguesa {
   display: none;
   background: #9d70ff;
@@ -57,16 +53,16 @@ body.modo-dia a:visited {
   .nav-links {
     display: none;
     flex-direction: column;
-    gap: 10px !important;
+    gap: 10px;
     background: #1a1a1a;
-    padding: 15px !important;
+    padding: 15px;
     border-radius: 8px;
   }
-  .nav-links.abierto { display: flex !important; }
+  .nav-links.abierto { display: flex; }
 }
 
-/* Ajuste del menú en día */
+/* El menú cambia cuando el cuerpo está en modo día */
 body.modo-dia .nav-links {
-  background: #e0e0e0 !important;
-  color: #222 !important;
+  background: #e0e0e0;
+  color: #222;
 }
