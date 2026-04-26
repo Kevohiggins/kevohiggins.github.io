@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contactame
+title: Contacto y apoyo
 ---
 
 # ¡Contactame!
