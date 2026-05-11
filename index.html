@@ -14,21 +14,20 @@ Menú ☰
 <p>Si querés saber quién es este desgraciado, te invito a leer <a href="/sobre-mi">mi presentación formal</a>.</p>
 <h2 id="-novedades">📢 Novedades</h2>
 <ul>
-<li><strong>08/05/2026</strong>: Actualizado PaddleOCRScanner a la versión 1.2,, ahora tiene traducción de OCR en tiempo real y el modo sombra funciona mejor. Usen el modo sombra, es buenísimo. Además, corregí algunas rutas mal puestas en la página. Cosas que pasan cuando migrás de Jekyll a Astro y hacés la mitad de las cosas ah.</li>
+<li><strong>11/05/2026</strong>: actualizado paddleOCRScanner. Ahora tiene traducción online, modo diferencial (lee texto nuevo sin repetir el viejo) y algunas opciones de preprocesamiento para <strong>intentar mejorar</strong> los resultados. Gasté parte de mi fin de semana en esto, así que exijo que alguien lo use ah.</li>
+<li><strong>08/05/2026</strong>: Actualizado PaddleOCRScanner a la versión 1.2,, ahora tiene traducción de OCR en tiempo real (offline) y el modo sombra funciona mejor. Usen el modo sombra, es buenísimo. Además, corregí algunas rutas mal puestas en la página. Cosas que pasan cuando migrás de Jekyll a Astro y hacés la mitad de las cosas ah.</li>
 <li><strong>04/05/2026</strong>: Se agrega nuevo experimento, PaddleOCR. Está en la <a href="/programas">sección de programas</a></li>
-<li><strong>28/04/2026</strong>]: Se reestructura la página de inicio, se agrega la secciónn <a href="/sobre-mi">Sobre mí</a>, y ya está disponible el modo de alto contraste, por si algún chicato me lee. Lo podés activar arriba.</li>
+<li><strong>28/04/2026</strong>: Se reestructura la página de inicio, se agrega la secciónn <a href="/sobre-mi">Sobre mí</a>, y ya está disponible el modo de alto contraste, por si algún chicato me lee. Lo podés activar arriba.</li>
 </ul>
 <script>
   (function() {
     const hora = new Date().getHours();
     const etiqueta = document.getElementById('saludo-dinamico');
     
-    // Si no encuentra el ID (por si las moscas), que no haga nada
     if (!etiqueta) return;
 
     let mensaje = "¡Bienvenida/o!"; // Saludo por defecto
 
-    // Lógica de horarios
     if (hora >= 5 && hora < 12) {
       mensaje = "¡Buenos días!";
     } else if (hora >= 12 && hora < 20) {
@@ -37,7 +36,6 @@ Menú ☰
       mensaje = "¡Buenas noches!";
     }
 
-    // Cambiamos el texto del h1
     etiqueta.textContent = mensaje;
   })();
 </script> </article> </main> <footer role="contentinfo" aria-label="Pie de página"> <div class="footer-container"> <p><strong>Kevin O'Higgins</strong> - 2026</p> <nav aria-label="Redes sociales y contacto rápido"> <ul class="social-links"> <li><a href="https://www.instagram.com/kev_ohiggins/">Instagram</a></li> <li><a href="https://x.com/Kevin_OHiggins">Twitter</a></li> <li><a href="https://www.facebook.com/profile.php?id=100009080325662">Facebook</a></li> <li><a href="/contactame">Contacto y Apoyo</a></li> </ul> </nav> <p class="astro-credit"> <a href="https://astro.build">
