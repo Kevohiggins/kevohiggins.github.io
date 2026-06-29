@@ -57,17 +57,15 @@ Lo instalás, lo activás desde el menú de NVDA/herramientas (o NVDA + Control 
 <li>Una vez allí, ubicá el archivo config.json, abrilo con el bloc de notas, y posicionate cerca de la línea 270.</li>
 </ul>
 <p>Deberías encontrar algo como esto, y atento a la sintaxis, porque vas a tener que hacer cambios:</p>
-<p>“clipboard”: {
+<p>“clipboard”:
 “use”: false,
 “origin”: false,
-“trans”: false
-}</p>
+“trans”: false</p>
 <p>Modificá lo necesario para que quede similar a:</p>
-<p>“clipboard”: {
+<p>“clipboard”:
 “use”: true,
 “origin”: true,
-“trans”: false
-}</p>
+“trans”: false</p>
 <p>Modificá “origin”: true si querés el texto en su idioma original, o cambiá “trans”: true si querés el texto traducido. Es importante que, si trans es false, origin sea true, y viceversa. Si configuraras ambas, podría pasar que se lea 2 veces el portapapeles (original y traducido) pero no queremos eso.</p>
 <h3 id="si-querés-que-algún-tts-lea-el-texto-no-combinar-con-portapapeles">Si querés que algún TTS lea el texto (no combinar con portapapeles)</h3>
 <ul>
@@ -132,25 +130,6 @@ Lo instalás, lo activás desde el menú de NVDA/herramientas (o NVDA + Control 
 <p>Igual, si hay algún drama… me preguntás, e intento ayudarte ni bien pueda. No pasa nada. Para eso tenés el <a href="/contactame">formulario de contacto</a>.</p>
 <p>Quizá, en un futuro (muy futuro), traiga una guía en audio para esta cosa. Soy consciente de que no es para cualquiera.</p>
 <p>Por mi parte, esto es todo. ¡Nos vemos!</p>
-<hr> </article> </main> <footer role="contentinfo" aria-label="Pie de página"> <div class="footer-container"> <p><strong>Kevin O'Higgins</strong> - 2026</p> <nav aria-label="Redes sociales y contacto rápido"> <ul class="social-links"> <li><a href="https://www.instagram.com/kev_ohiggins/">Instagram</a></li> <li><a href="https://x.com/Kevin_OHiggins">Twitter</a></li> <li><a href="https://www.facebook.com/profile.php?id=100009080325662">Facebook</a></li> <li><a href="/contactame">Contacto y Apoyo</a></li> </ul> </nav> <p class="astro-credit"> <a href="https://astro.build">
+<hr/> </article> </main> <footer role="contentinfo" aria-label="Pie de página"> <div class="footer-container"> <p><strong>Kevin O'Higgins</strong> - 2026</p> <nav aria-label="Redes sociales y contacto rápido"> <ul class="social-links"> <li><a href="https://www.instagram.com/kev_ohiggins/">Instagram</a></li> <li><a href="https://x.com/Kevin_OHiggins">Twitter</a></li> <li><a href="https://www.facebook.com/profile.php?id=100009080325662">Facebook</a></li> <li><a href="/contactame">Contacto y Apoyo</a></li> </ul> </nav> <p class="astro-credit"> <a href="https://astro.build">
 Sitio creado con Astro
-</a> </p> </div> </footer> <script type="module">
- import "/scripts/main.js";
-</script>  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-  const contrastBtn = document.getElementById('contrast-btn');
-  if (contrastBtn) {
-    const isContrastActive = document.body.classList.contains('alto-contraste');
-    contrastBtn.setAttribute('aria-pressed', isContrastActive ? 'true' : 'false');
-    contrastBtn.onclick = () => {
-      const newState = document.body.classList.toggle('alto-contraste');
-      contrastBtn.setAttribute('aria-pressed', newState);
-      localStorage.setItem('altoContraste', newState);
-    };
-  }
-  const links = document.querySelectorAll('a[href^="http"]');
-  links.forEach(link => {
-    link.setAttribute('target', '_blank');
-    link.setAttribute('rel', 'noopener noreferrer');
-  });
-});</script> </body> </html>
+</a> </p> </div> </footer> <script type="module">const n=()=>{const t=document.getElementById("menu-btn"),o=document.getElementById("nav-list");t&&o&&(t.onclick=()=>{const e=o.classList.toggle("abierto");t.setAttribute("aria-expanded",e),t.innerHTML=e?"Cerrar Menú ✖":"Menú ☰"})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n();const a=()=>{const t=document.getElementById("contrast-btn");if(t){const e=document.body.classList.contains("alto-contraste");t.setAttribute("aria-pressed",e?"true":"false"),t.onclick=()=>{const s=document.body.classList.toggle("alto-contraste");t.setAttribute("aria-pressed",s),localStorage.setItem("altoContraste",s)}}document.querySelectorAll('a[href^="http"]').forEach(e=>{e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer")})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",()=>{n(),a()}):(n(),a());</script> </body> </html>

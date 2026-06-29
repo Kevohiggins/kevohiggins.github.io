@@ -12,7 +12,7 @@ Menú ☰
 <p>Bueno, es complicado. Las ideas son mías, pero el desarrollo está impulsado enteramente por IA y, en consecuencia, el código no me pertenece de ninguna manera.</p>
 <p>Agarrá lo que quieras, usalo como quieras ah.</p>
 <p>Cada programa incluye su propio manual; lo que hay en esta página es solo una breve descripción.</p>
-<hr>
+<hr/>
 <h2 id="traductor-de-portapapeles">Traductor de Portapapeles</h2>
 <p>Este es un programa que traduce instantáneamente al español (o al idioma que quieras) cualquier texto que copies al portapapeles, usando la velocidad increíble de modelos de IA como Llama o Qwen a través de OpenRouter.</p>
 <p>No tengo nada interesante que contar de él… bah, sí, usa IA, así que debería traduccir juegos (como Shadow Line, viva Shadow Line) con mucha calidad.</p>
@@ -39,25 +39,6 @@ Menú ☰
 <p><strong>Aviso importante:</strong> Este fue mi primer proyecto y, lamentablemente, perdí el código fuente. Por este motivo, el programa no recibirá más actualizaciones; se quedará tal cual está como una pieza de museo personal. Igual, los scanners ya hacen algo similar.</p>
 </blockquote>
 <p>Podés <a href="https://archive.org/download/DocTranslator/Traductor%20de%20Documentos.rar">Descargar Traductor de Documentos desde Archive</a>.</p>
-<hr> </article> </main> <footer role="contentinfo" aria-label="Pie de página"> <div class="footer-container"> <p><strong>Kevin O'Higgins</strong> - 2026</p> <nav aria-label="Redes sociales y contacto rápido"> <ul class="social-links"> <li><a href="https://www.instagram.com/kev_ohiggins/">Instagram</a></li> <li><a href="https://x.com/Kevin_OHiggins">Twitter</a></li> <li><a href="https://www.facebook.com/profile.php?id=100009080325662">Facebook</a></li> <li><a href="/contactame">Contacto y Apoyo</a></li> </ul> </nav> <p class="astro-credit"> <a href="https://astro.build">
+<hr/> </article> </main> <footer role="contentinfo" aria-label="Pie de página"> <div class="footer-container"> <p><strong>Kevin O'Higgins</strong> - 2026</p> <nav aria-label="Redes sociales y contacto rápido"> <ul class="social-links"> <li><a href="https://www.instagram.com/kev_ohiggins/">Instagram</a></li> <li><a href="https://x.com/Kevin_OHiggins">Twitter</a></li> <li><a href="https://www.facebook.com/profile.php?id=100009080325662">Facebook</a></li> <li><a href="/contactame">Contacto y Apoyo</a></li> </ul> </nav> <p class="astro-credit"> <a href="https://astro.build">
 Sitio creado con Astro
-</a> </p> </div> </footer> <script type="module">
- import "/scripts/main.js";
-</script>  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-  const contrastBtn = document.getElementById('contrast-btn');
-  if (contrastBtn) {
-    const isContrastActive = document.body.classList.contains('alto-contraste');
-    contrastBtn.setAttribute('aria-pressed', isContrastActive ? 'true' : 'false');
-    contrastBtn.onclick = () => {
-      const newState = document.body.classList.toggle('alto-contraste');
-      contrastBtn.setAttribute('aria-pressed', newState);
-      localStorage.setItem('altoContraste', newState);
-    };
-  }
-  const links = document.querySelectorAll('a[href^="http"]');
-  links.forEach(link => {
-    link.setAttribute('target', '_blank');
-    link.setAttribute('rel', 'noopener noreferrer');
-  });
-});</script> </body> </html>
+</a> </p> </div> </footer> <script type="module">const n=()=>{const t=document.getElementById("menu-btn"),o=document.getElementById("nav-list");t&&o&&(t.onclick=()=>{const e=o.classList.toggle("abierto");t.setAttribute("aria-expanded",e),t.innerHTML=e?"Cerrar Menú ✖":"Menú ☰"})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n();const a=()=>{const t=document.getElementById("contrast-btn");if(t){const e=document.body.classList.contains("alto-contraste");t.setAttribute("aria-pressed",e?"true":"false"),t.onclick=()=>{const s=document.body.classList.toggle("alto-contraste");t.setAttribute("aria-pressed",s),localStorage.setItem("altoContraste",s)}}document.querySelectorAll('a[href^="http"]').forEach(e=>{e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer")})};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",()=>{n(),a()}):(n(),a());</script> </body> </html>
