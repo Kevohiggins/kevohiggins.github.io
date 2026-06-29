@@ -181,6 +181,8 @@ const setupAudioLogic = () => {
 
 document.addEventListener('astro:page-load', setupAudioLogic);
 
-if (document.readyState !== 'loading') {
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupAudioLogic);
+} else {
     setupAudioLogic();
 }
