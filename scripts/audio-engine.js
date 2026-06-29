@@ -175,12 +175,15 @@ const setupAudioLogic = () => {
         audio.addEventListener('loadedmetadata', updateProgressUI);
         audio.addEventListener('loadeddata', updateProgressUI);
         
-        /* CORREGIDO: Cierre de llaves e indentación limpia para el evento ended */
         audio.addEventListener('ended', () => {
             if (autoPlayCheck && autoPlayCheck.checked) {
                 const siguienteAudio = audios[index + 1];
                 if (siguienteAudio) {
                     siguienteAudio.play().catch(err => console.warn(err));
+                    const siguientePlayer = siguienteAudio.nextSibling;
+                    if (siguientePlayer && siguientePlayer.classList.contains('custom-player')) {
+                        siguientePlayer.focus();
+                    }
                 }
             }
         });
