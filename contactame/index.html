@@ -1,9 +1,15 @@
 <!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Contacto y apoyo | Kev O&#39;Higgins</title><meta name="description" content="Mi espacio personal"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png"><link rel="manifest" href="/assets/icons/site.webmanifest"><meta name="theme-color" content="#0d0d0d"><meta property="og:type" content="website"><meta property="og:title" content="Contacto y apoyo | Kev O'Higgins"><meta property="og:description" content="Mi espacio personal"><meta property="og:site_name" content="Kev O'Higgins"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Contacto y apoyo | Kev O'Higgins"><meta name="twitter:description" content="Mi espacio personal"><link rel="stylesheet" href="/assets/BaseLayout.css"></head> <body> <script>
-    (function() {
-  const hora = new Date().getHours();
-  if (hora >= 5 && hora < 20) document.body.classList.add('modo-dia');
-  if (localStorage.getItem('altoContraste') === 'true') document.body.classList.add('alto-contraste');
-})();</script> <header role="banner" data-astro-cid-hpnw4vwy> <div class="header-top" data-astro-cid-hpnw4vwy> <a href="/" class="site-logo" data-astro-cid-hpnw4vwy>Kev O'Higgins</a> <button id="contrast-btn" class="btn-switch" aria-pressed="false" title="Activar alto contraste" data-astro-cid-hpnw4vwy>
+  (function() {
+    const hora = new Date().getHours();
+    const esContraste = localStorage.getItem('altoContraste') === 'true';
+
+    if (esContraste) {
+      document.body.classList.add('alto-contraste');
+    } else if (hora >= 5 && hora < 20) {
+      document.body.classList.add('modo-dia');
+    }
+  })();
+</script> <header role="banner" data-astro-cid-hpnw4vwy> <div class="header-top" data-astro-cid-hpnw4vwy> <a href="/" class="site-logo" data-astro-cid-hpnw4vwy>Kev O'Higgins</a> <button id="contrast-btn" class="btn-switch" aria-pressed="false" title="Activar alto contraste" data-astro-cid-hpnw4vwy>
 Activar alto contraste
 </button> </div> <nav aria-label="Menú principal"> <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" class="boton-hamburguesa">
 Menú ☰

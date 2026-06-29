@@ -174,12 +174,20 @@ const setupAudioLogic = () => {
         audio.addEventListener('timeupdate', updateProgressUI);
         audio.addEventListener('loadedmetadata', updateProgressUI);
         audio.addEventListener('loadeddata', updateProgressUI);
+        
+        /* CORREGIDO: Cierre de llaves e indentación limpia para el evento ended */
+        audio.addEventListener('ended', () => {
+            if (autoPlayCheck && autoPlayCheck.checked) {
+                const siguienteAudio = audios[index + 1];
+                if (siguienteAudio) {
+                    siguienteAudio.play().catch(err => console.warn(err));
+                }
+            }
+        });
 
         updateProgressUI();
     });
 };
-
-document.addEventListener('astro:page-load', setupAudioLogic);
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupAudioLogic);
