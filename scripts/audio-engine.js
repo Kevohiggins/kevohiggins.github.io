@@ -1,26 +1,34 @@
 const setupAudioLogic = () => {
     const audios = document.querySelectorAll('audio');
     const autoPlayCheck = document.getElementById('autoPlayCheck');
+    if (!audios.length) return;
 
-    if (audios.length === 0) return;
+    let globalVolume = 0.5;
+
+    const formatTime = (secs) => {
+        if (isNaN(secs) || secs === Infinity) return "00:00";
+        const m = Math.floor(secs / 60).toString().padStart(2, '0');
+        const s = Math.floor(secs % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    };
 
     audios.forEach((audio, index) => {
-        audio.volume = 0.5;
-        let lastVolume = 0.5;
-        
+        audio.volume = globalVolume;
+        let lastVolume = globalVolume;
+
         audio.removeAttribute('controls');
         audio.style.display = 'none';
 
-        const playerContainer = document.createElement('div');
-        playerContainer.className = 'custom-player';
-        playerContainer.tabIndex = 0; 
-        playerContainer.setAttribute('aria-label', `Reproductor de audio`);
+        const player = document.createElement('div');
+        player.className = 'custom-player';
+        player.tabIndex = 0;
+        player.setAttribute('aria-label', 'Reproductor de audio');
 
-        playerContainer.innerHTML = `
+        player.innerHTML = `
             <div class="player-controls">
                 <button class="play-btn" aria-label="Reproducir (K o Espacio)">Play</button>
                 <button class="mute-btn" aria-label="Silenciar (M)">Silenciar</button>
-                <input type="range" class="volume-slider" min="0" max="100" value="50" aria-label="Volumen (Flechas arriba y abajo)" />
+                <input type="range" class="volume-slider" min="0" max="100" value="${globalVolume * 100}" aria-label="Volumen (Flechas arriba y abajo)" />
             </div>
             <div class="progress-container">
                 <span class="current-time" aria-hidden="true">00:00</span>
@@ -29,139 +37,73 @@ const setupAudioLogic = () => {
             </div>
         `;
 
-        audio.parentNode.insertBefore(playerContainer, audio.nextSibling);
+        audio.parentNode.insertBefore(player, audio.nextSibling);
 
-        const playBtn = playerContainer.querySelector('.play-btn');
-        const muteBtn = playerContainer.querySelector('.mute-btn');
-        const volumeSlider = playerContainer.querySelector('.volume-slider');
-        const progressSlider = playerContainer.querySelector('.progress-slider');
-        const currentTimeText = playerContainer.querySelector('.current-time');
-        const totalDurationText = playerContainer.querySelector('.total-duration');
+        const playBtn = player.querySelector('.play-btn');
+        const muteBtn = player.querySelector('.mute-btn');
+        const volSlider = player.querySelector('.volume-slider');
+        const progSlider = player.querySelector('.progress-slider');
+        const curText = player.querySelector('.current-time');
+        const durText = player.querySelector('.total-duration');
 
-        const formatTime = (secs) => {
-            if (isNaN(secs) || secs === Infinity) return "00:00";
-            const m = Math.floor(secs / 60).toString().padStart(2, '0');
-            const s = Math.floor(secs % 60).toString().padStart(2, '0');
-            return `${m}:${s}`;
-        };
+        const togglePlay = () => audio.paused ? audio.play().catch(console.warn) : audio.pause();
 
-        const togglePlay = () => {
-            if (audio.paused) {
-                audio.play().catch(err => console.warn(err));
-            } else {
-                audio.pause();
-            }
+        const setVolume = (val) => {
+            globalVolume = Math.max(0, Math.min(1, val));
+            audio.volume = globalVolume;
+            volSlider.value = globalVolume * 100;
+            const isMuted = audio.volume === 0;
+            muteBtn.textContent = isMuted ? 'Quitar Silencio' : 'Silenciar';
+            muteBtn.setAttribute('aria-label', `${isMuted ? 'Quitar silencio' : 'Silenciar'} (M)`);
         };
 
         const toggleMute = () => {
             if (audio.volume > 0) {
                 lastVolume = audio.volume;
-                audio.volume = 0;
-                volumeSlider.value = 0;
+                setVolume(0);
             } else {
-                audio.volume = lastVolume;
-                volumeSlider.value = lastVolume * 100;
-            }
-            updateMuteButtonUI();
-        };
-
-        const updateMuteButtonUI = () => {
-            if (audio.volume === 0) {
-                muteBtn.textContent = 'Quitar Silencio';
-                muteBtn.setAttribute('aria-label', 'Quitar silencio (M)');
-            } else {
-                muteBtn.textContent = 'Silenciar';
-                muteBtn.setAttribute('aria-label', 'Silenciar (M)');
+                setVolume(lastVolume || 0.5);
             }
         };
 
         const updateProgressUI = () => {
-            const current = audio.currentTime;
-            const duration = audio.duration || 0;
+            const cur = audio.currentTime, dur = audio.duration || 0;
+            progSlider.max = dur > 0 ? dur : 100;
+            progSlider.value = cur;
+            progSlider.setAttribute('aria-valuenow', cur);
+            progSlider.setAttribute('aria-valuemax', progSlider.max);
 
-            progressSlider.max = duration > 0 ? duration : 100;
-            progressSlider.value = current;
-
-            progressSlider.setAttribute('aria-valuenow', current);
-            progressSlider.setAttribute('aria-valuemax', duration > 0 ? duration : 100);
-
-            const tiempoActualStr = formatTime(current);
-            const tiempoTotalStr = formatTime(duration);
-
-            currentTimeText.textContent = tiempoActualStr;
-            totalDurationText.textContent = tiempoTotalStr;
-
-            progressSlider.setAttribute('aria-valuetext', `${tiempoActualStr} de ${tiempoTotalStr}`);
+            const tCur = formatTime(cur), tDur = formatTime(dur);
+            curText.textContent = tCur;
+            durText.textContent = tDur;
+            progSlider.setAttribute('aria-valuetext', `${tCur} de ${tDur}`);
         };
 
         playBtn.onclick = togglePlay;
         muteBtn.onclick = toggleMute;
+        volSlider.oninput = () => setVolume(volSlider.value / 100);
+        progSlider.oninput = () => { if (audio.duration) audio.currentTime = progSlider.value; updateProgressUI(); };
 
-        volumeSlider.oninput = () => {
-            audio.volume = volumeSlider.value / 100;
-            updateMuteButtonUI();
-        };
-
-        progressSlider.oninput = () => {
-            if (!audio.duration) return;
-            audio.currentTime = progressSlider.value;
-            updateProgressUI();
-        };
-
-        playerContainer.addEventListener('keydown', (e) => {
+        player.addEventListener('keydown', (e) => {
             if (e.target.tagName === 'INPUT' && e.target.type === 'text') return;
-
+            const key = e.key.toLowerCase();
             let handled = true;
 
-            if (e.key === 'k' || e.key === 'K' || e.key === ' ') {
-                togglePlay();
-            } 
-            else if (e.key === 'm' || e.key === 'M') {
-                toggleMute();
-            }
-            else if (e.key === 'ArrowLeft' || e.key === 'j' || e.key === 'J') {
-                const step = (e.key === 'ArrowLeft') ? 5 : 10;
-                audio.currentTime = Math.max(0, audio.currentTime - step);
-                updateProgressUI();
-            } 
-            else if (e.key === 'ArrowRight' || e.key === 'l' || e.key === 'L') {
-                const step = (e.key === 'ArrowRight') ? 5 : 10;
-                audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + step);
-                updateProgressUI();
-            } 
-            else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                audio.volume = Math.min(1, audio.volume + 0.05);
-                volumeSlider.value = audio.volume * 100;
-                updateMuteButtonUI();
-            } 
-            else if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                audio.volume = Math.max(0, audio.volume - 0.05);
-                volumeSlider.value = audio.volume * 100;
-                updateMuteButtonUI();
-            } 
-            else if (e.key >= '0' && e.key <= '9') {
-                if (audio.duration) {
-                    const porcentaje = parseInt(e.key) * 10;
-                    audio.currentTime = (porcentaje / 100) * audio.duration;
-                    updateProgressUI();
-                }
-            } 
-            else {
-                handled = false;
-            }
+            if (key === 'k' || key === ' ') togglePlay();
+            else if (key === 'm') toggleMute();
+            else if (key === 'arrowleft' || key === 'j') audio.currentTime = Math.max(0, audio.currentTime - (key === 'j' ? 10 : 5));
+            else if (key === 'arrowright' || key === 'l') audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + (key === 'l' ? 10 : 5));
+            else if (key === 'arrowup') setVolume(audio.volume + 0.05);
+            else if (key === 'arrowdown') setVolume(audio.volume - 0.05);
+            else if (key >= '0' && key <= '9' && audio.duration) audio.currentTime = (parseInt(key) * 10 / 100) * audio.duration;
+            else handled = false;
 
-            if (handled) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
+            if (handled) { e.preventDefault(); e.stopPropagation(); }
         });
 
         audio.addEventListener('play', () => {
-            audios.forEach(other => {
-                if (other !== audio) other.pause();
-            });
+            audios.forEach(other => { if (other !== audio) other.pause(); });
+            setVolume(globalVolume);
             playBtn.textContent = 'Pausa';
             playBtn.setAttribute('aria-label', 'Pausar (K o Espacio)');
         });
@@ -171,20 +113,14 @@ const setupAudioLogic = () => {
             playBtn.setAttribute('aria-label', 'Reproducir (K o Espacio)');
         });
 
-        audio.addEventListener('timeupdate', updateProgressUI);
-        audio.addEventListener('loadedmetadata', updateProgressUI);
-        audio.addEventListener('loadeddata', updateProgressUI);
-        
+        ['timeupdate', 'loadedmetadata', 'loadeddata'].forEach(evt => audio.addEventListener(evt, updateProgressUI));
+
         audio.addEventListener('ended', () => {
-            if (autoPlayCheck && autoPlayCheck.checked) {
-                const siguienteAudio = audios[index + 1];
-                if (siguienteAudio) {
-                    siguienteAudio.play().catch(err => console.warn(err));
-                    const siguientePlayer = siguienteAudio.nextSibling;
-                    if (siguientePlayer && siguientePlayer.classList.contains('custom-player')) {
-                        siguientePlayer.focus();
-                    }
-                }
+            if (autoPlayCheck?.checked && audios[index + 1]) {
+                const nextAudio = audios[index + 1];
+                nextAudio.volume = globalVolume;
+                nextAudio.play().catch(console.warn);
+                nextAudio.nextSibling?.focus();
             }
         });
 
@@ -192,8 +128,6 @@ const setupAudioLogic = () => {
     });
 };
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupAudioLogic);
-} else {
-    setupAudioLogic();
-}
+document.readyState === 'loading' 
+    ? document.addEventListener('DOMContentLoaded', setupAudioLogic) 
+    : setupAudioLogic();
