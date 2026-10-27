@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kevohiggins.github.io/sitemap.xml
+Sitemap: https://kevohiggins.github.io/sitemap-index.xml
