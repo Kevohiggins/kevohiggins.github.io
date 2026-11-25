@@ -34,7 +34,7 @@ Menú ☰
 <p>Hablando de covers… debería grabar algo, ¿no?</p>
 <p>Hace mucho que no canto nada.</p>
 <p>Ah, bueno… también estuve involucrado en la traducción de juegos de texto japoneses a español, pero no creo poner más información al respecto en esta página.</p> </article> <p><a href="/blog">Volver al blog</a></p>  </article> <section id="comentarios-seccion" aria-labelledby="titulo-comentarios" style="margin-top: 40px; border-top: 2px solid var(--border-color); padding-top: 20px;"> <h2 id="titulo-comentarios">Comentarios</h2> <form id="form-comentario" style="display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin-bottom: 30px;"> <input type="hidden" id="parent-id" value=""> <div id="respondiendo-a" hidden style="font-size: 0.9rem; color: var(--accent-color);">
-Respondiendo a <strong id="nombre-padre"></strong> <button type="button" id="cancelar-respuesta" style="margin-left: 8px; font-size: 0.85rem;">Cancelar</button> </div> <div> <label for="autor-comentario">Nombre:</label><br> <input id="autor-comentario" type="text" required maxlength="60" placeholder="Tu nombre o apodo" style="width: 100%; padding: 8px; margin-top: 4px;"> </div> <div> <label for="texto-comentario">Comentario:</label><br> <textarea id="texto-comentario" rows="4" required maxlength="2000" placeholder="Escribí lo que quieras..." style="width: 100%; padding: 8px; margin-top: 4px;"></textarea> </div> <details style="font-size: 0.85rem;"> <summary style="cursor: pointer;">Soy el autor de la página</summary> <div style="margin-top: 6px;"> <label for="clave-autor">Clave de autor:</label> <input id="clave-autor" type="password" placeholder="Opcional" style="padding: 4px 8px; margin-left: 6px;"> </div> </details> <div> <button type="submit" id="btn-enviar-comentario">Publicar comentario</button> <span id="estado-comentario" style="margin-left: 10px; font-size: 0.9rem;"></span> </div> </form> <div id="lista-comentarios"> <p>Cargando comentarios...</p> </div> </section> <script>(function(){const postId = "24-11-2026";
+Respondiendo a <strong id="nombre-padre"></strong> <button type="button" id="cancelar-respuesta" style="margin-left: 8px; font-size: 0.85rem;">Cancelar</button> </div> <div> <label for="autor-comentario">Nombre:</label><br> <input id="autor-comentario" type="text" required maxlength="60" placeholder="Tu nombre o apodo" style="width: 100%; padding: 8px; margin-top: 4px;"> </div> <div> <label for="texto-comentario">Comentario:</label><br> <textarea id="texto-comentario" rows="4" required maxlength="2000" placeholder="Escribí lo que quieras..." style="width: 100%; padding: 8px; margin-top: 4px;"></textarea> </div> <div> <button type="submit" id="btn-enviar-comentario">Publicar comentario</button> <span id="estado-comentario" style="margin-left: 10px; font-size: 0.9rem;"></span> </div> </form> <div id="lista-comentarios"> <p>Cargando comentarios...</p> </div> </section> <script>(function(){const postId = "24-11-2026";
 const SUPABASE_URL = "https://trytonoaxgyhgwtldcvs.supabase.co";
 const SUPABASE_KEY = "sb_publishable_hNOt6I1hHff7rS-GL9sO1w_B3YNB1mA";
 
@@ -126,7 +126,7 @@ const SUPABASE_KEY = "sb_publishable_hNOt6I1hHff7rS-GL9sO1w_B3YNB1mA";
               </button>
               ${!esRespuesta ? `<button type="button" class="btn-responder" data-id="${c.id}" data-autor="${escapeHtml(c.autor)}">Responder</button>` : ''}
               ${esMio ? `<button type="button" class="btn-editar" data-id="${c.id}">Editar</button>` : ''}
-              ${esMio ? `<button type="button" class="btn-borrar" data-id="${c.id}">Borrar</button>` : ''}
+              ${esMio || getAdminToken() ? `<button type="button" class="btn-borrar" data-id="${c.id}">Borrar</button>` : ''}
             </div>
             ${hijosHtml}
           </article>
@@ -185,14 +185,32 @@ const SUPABASE_KEY = "sb_publishable_hNOt6I1hHff7rS-GL9sO1w_B3YNB1mA";
         if (!confirm('¿Seguro que querés borrar este comentario?')) return;
         const id = btn.dataset.id;
         const token = getTokens()[id];
-        await fetch(`${SUPABASE_URL}/rest/v1/rpc/borrar_comentario`, {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({ p_id: id, p_token: token }),
-        });
+        const adminToken = getAdminToken();
+        if (token) {
+          await fetch(`${SUPABASE_URL}/rest/v1/rpc/borrar_comentario`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({ p_id: id, p_token: token }),
+          });
+        } else if (adminToken) {
+          const res = await fetch(`${SUPABASE_URL}/rest/v1/comentarios?id=eq.${id}`, {
+            method: 'DELETE',
+            headers: { ...headers, Authorization: `Bearer ${adminToken}` },
+          });
+          if (!res.ok) alert('No se pudo borrar: sesión expirada o sin permisos.');
+        }
         cargarComentarios();
       });
     });
+  }
+
+  function getAdminToken() {
+    try {
+      const sesion = JSON.parse(localStorage.getItem('kevo_auth_session') || 'null');
+      return sesion && sesion.access_token && sesion.expires_at > Date.now() ? sesion.access_token : null;
+    } catch {
+      return null;
+    }
   }
 
   document.getElementById('cancelar-respuesta').addEventListener('click', () => {
@@ -205,7 +223,7 @@ const SUPABASE_KEY = "sb_publishable_hNOt6I1hHff7rS-GL9sO1w_B3YNB1mA";
     const autor = document.getElementById('autor-comentario').value.trim();
     const contenido = document.getElementById('texto-comentario').value.trim();
     const parentId = document.getElementById('parent-id').value || null;
-    const claveAutor = document.getElementById('clave-autor').value.trim();
+    const adminToken = getAdminToken();
     const estado = document.getElementById('estado-comentario');
     const btn = document.getElementById('btn-enviar-comentario');
 
@@ -215,39 +233,24 @@ const SUPABASE_KEY = "sb_publishable_hNOt6I1hHff7rS-GL9sO1w_B3YNB1mA";
 
     const token = crypto.randomUUID();
     try {
-      let res;
-      if (claveAutor) {
-        res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/publicar_como_autor`, {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({
-            p_post_id: postId,
-            p_parent_id: parentId,
-            p_autor: autor,
-            p_contenido: contenido,
-            p_token: token,
-            p_clave_admin: claveAutor,
-          }),
-        });
-        if (!res.ok) throw new Error('Clave de autor incorrecta');
-        const idCreado = await res.json();
-        saveToken(idCreado, token);
-      } else {
-        res = await fetch(`${SUPABASE_URL}/rest/v1/comentarios`, {
-          method: 'POST',
-          headers: { ...headers, 'Prefer': 'return=representation' },
-          body: JSON.stringify({
-            post_id: postId,
-            parent_id: parentId,
-            autor,
-            contenido,
-            delete_token: token,
-          }),
-        });
-        if (!res.ok) throw new Error('Error al publicar');
-        const [creado] = await res.json();
-        if (creado?.id) saveToken(creado.id, token);
-      }
+      const reqHeaders = adminToken
+        ? { ...headers, Authorization: `Bearer ${adminToken}`, Prefer: 'return=representation' }
+        : { ...headers, Prefer: 'return=representation' };
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/comentarios`, {
+        method: 'POST',
+        headers: reqHeaders,
+        body: JSON.stringify({
+          post_id: postId,
+          parent_id: parentId,
+          autor,
+          contenido,
+          es_autor: Boolean(adminToken),
+          delete_token: token,
+        }),
+      });
+      if (!res.ok) throw new Error('Error al publicar');
+      const [creado] = await res.json();
+      if (creado?.id) saveToken(creado.id, token);
 
       document.getElementById('texto-comentario').value = '';
       document.getElementById('parent-id').value = '';

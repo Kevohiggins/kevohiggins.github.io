@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Administración | Kev O&#39;Higgins</title><meta name="description" content="Inicio de sesión de autor"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png"><link rel="manifest" href="/assets/icons/site.webmanifest"><meta name="theme-color" content="#0d0d0d"><meta property="og:type" content="website"><meta property="og:title" content="Administración | Kev O'Higgins"><meta property="og:description" content="Inicio de sesión de autor"><meta property="og:site_name" content="Kev O'Higgins"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Administración | Kev O'Higgins"><meta name="twitter:description" content="Inicio de sesión de autor"><link rel="stylesheet" href="/assets/BaseLayout.css"></head> <body> <script>
+  (function() {
+    const hora = new Date().getHours();
+    const esContraste = localStorage.getItem('altoContraste') === 'true';
+
+    if (esContraste) {
+      document.body.classList.add('alto-contraste');
+    } else if (hora >= 5 && hora < 20) {
+      document.body.classList.add('modo-dia');
+    }
+  })();
+</script> <header role="banner" data-astro-cid-hpnw4vwy> <div class="header-top" data-astro-cid-hpnw4vwy> <a href="/" class="site-logo" data-astro-cid-hpnw4vwy>Kev O'Higgins</a> <button id="contrast-btn" class="btn-switch" aria-pressed="false" title="Activar alto contraste" data-astro-cid-hpnw4vwy>
+Activar alto contraste
+</button> </div> <nav aria-label="Menú principal"> <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" class="boton-hamburguesa">
+Menú ☰
+</button> <ul id="nav-list" class="nav-links"> <li><a href="/">Inicio</a></li> <li><a href="/blog">Blog</a></li> <li><a href="/sobre-mi">Sobre mí</a></li> <li><a href="/covers">Covers</a></li> <li> <a href="#guias-submenu" id="btn-guias" aria-expanded="false" aria-controls="guias-submenu">Guías</a> <ul id="guias-submenu" hidden style="list-style: none; padding-left: 14px; margin-top: 6px; display: none; flex-direction: column; gap: 6px;"> <li><a href="/guias-de-texto">Guías de texto</a></li> <li><a href="/guias-de-audio">Guías de Audio</a></li> </ul> </li> <li><a href="/programas">Programas</a></li> <li><a href="/textos">Textos</a></li> <li><a href="/contactame">Contacto y apoyo</a></li> </ul> </nav> <script>
+  const btnGuias = document.getElementById('btn-guias');
+  const subGuias = document.getElementById('guias-submenu');
+  if (btnGuias && subGuias) {
+    btnGuias.addEventListener('click', (e) => {
+      e.preventDefault();
+      const abierto = btnGuias.getAttribute('aria-expanded') === 'true';
+      btnGuias.setAttribute('aria-expanded', String(!abierto));
+      subGuias.hidden = abierto;
+      subGuias.style.display = abierto ? 'none' : 'flex';
+    });
+  }
+</script> </header> <hr aria-hidden="true"> <main role="main" aria-label="Contenido principal"> <article>  <h1>Administración</h1> <p id="estado-sesion">Verificando sesión...</p> <form id="form-login" hidden style="display: flex; flex-direction: column; gap: 10px; max-width: 360px;"> <div> <label for="admin-email">Email:</label><br> <input id="admin-email" type="email" required style="width: 100%; padding: 6px;"> </div> <div> <label for="admin-password">Contraseña:</label><br> <input id="admin-password" type="password" required style="width: 100%; padding: 6px;"> </div> <div> <button type="submit" id="btn-login">Iniciar sesión</button> </div> </form> <div id="panel-logout" hidden> <button type="button" id="btn-logout">Cerrar sesión</button> </div>  </article>  </main> <footer role="contentinfo" aria-label="Pie de página"> <div class="footer-container"> <p><strong>Kevin O'Higgins</strong> - 2026</p> <nav aria-label="Redes sociales y contacto rápido"> <ul class="social-links"> <li><a href="https://www.instagram.com/kev_ohiggins/">Instagram</a></li> <li><a href="https://x.com/Kevin_OHiggins">Twitter</a></li> <li><a href="https://www.facebook.com/profile.php?id=100009080325662">Facebook</a></li> <li><a href="/contactame">Contacto y Apoyo</a></li> </ul> </nav> <p class="astro-credit"> <a href="https://astro.build">
+Sitio creado con Astro
+</a> </p> </div> </footer> <script src="/scripts/main.js"></script></body> </html> <script>
+  const SUPABASE_URL = 'https://trytonoaxgyhgwtldcvs.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_hNOt6I1hHff7rS-GL9sO1w_B3YNB1mA';
+  const LS_SESSION = 'kevo_auth_session';
+
+  const estadoEl = document.getElementById('estado-sesion');
+  const formLogin = document.getElementById('form-login');
+  const panelLogout = document.getElementById('panel-logout');
+
+  function actualizarUI() {
+    try {
+      const sesion = JSON.parse(localStorage.getItem(LS_SESSION) || 'null');
+      const activa = sesion && sesion.access_token && sesion.expires_at > Date.now();
+      formLogin.hidden = activa;
+      panelLogout.hidden = !activa;
+      estadoEl.textContent = activa
+        ? `Sesión activa como ${sesion.email || 'autor'}.`
+        : 'No hay ninguna sesión activa.';
+    } catch {
+      formLogin.hidden = false;
+      panelLogout.hidden = true;
+      estadoEl.textContent = 'No hay ninguna sesión activa.';
+    }
+  }
+
+  formLogin.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('admin-email').value.trim();
+    const password = document.getElementById('admin-password').value;
+    const btn = document.getElementById('btn-login');
+    btn.disabled = true;
+    estadoEl.textContent = 'Iniciando sesión...';
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_KEY,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.access_token) {
+        throw new Error(data.error_description || data.msg || 'Credenciales incorrectas');
+      }
+      localStorage.setItem(LS_SESSION, JSON.stringify({
+        access_token: data.access_token,
+        refresh_token: data.refresh_token,
+        expires_at: Date.now() + (data.expires_in || 3600) * 1000,
+        email: data.user?.email || email,
+      }));
+      formLogin.reset();
+      actualizarUI();
+    } catch (err) {
+      estadoEl.textContent = err.message || 'Error al iniciar sesión';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  document.getElementById('btn-logout').addEventListener('click', () => {
+    localStorage.removeItem(LS_SESSION);
+    actualizarUI();
+  });
+
+  actualizarUI();
+</script>
