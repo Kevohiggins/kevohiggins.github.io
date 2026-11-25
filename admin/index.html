@@ -41,12 +41,14 @@ Sitio creado con Astro
       const sesion = JSON.parse(localStorage.getItem(LS_SESSION) || 'null');
       const activa = sesion && sesion.access_token && sesion.expires_at > Date.now();
       formLogin.hidden = activa;
+      formLogin.style.display = activa ? 'none' : 'flex';
       panelLogout.hidden = !activa;
       estadoEl.textContent = activa
         ? `Sesión activa como ${sesion.email || 'autor'}.`
         : 'No hay ninguna sesión activa.';
     } catch {
       formLogin.hidden = false;
+      formLogin.style.display = 'flex';
       panelLogout.hidden = true;
       estadoEl.textContent = 'No hay ninguna sesión activa.';
     }
