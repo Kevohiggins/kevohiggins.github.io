@@ -54,6 +54,236 @@ Menú ☰
 <li><a href="/guias-de-audio/LION.mp3">Descargar la guía</a>.</li>
 </ul>
 <hr/>
-<script is:inline="true" src="/scripts/audio-engine.js"></script> </article> </main> <footer role="contentinfo" aria-label="Pie de página"> <div class="footer-container"> <p><strong>Kevin O'Higgins</strong> - 2026</p> <nav aria-label="Redes sociales y contacto rápido"> <ul class="social-links"> <li><a href="https://www.instagram.com/kev_ohiggins/">Instagram</a></li> <li><a href="https://x.com/Kevin_OHiggins">Twitter</a></li> <li><a href="https://www.facebook.com/profile.php?id=100009080325662">Facebook</a></li> <li><a href="/contactame">Contacto y Apoyo</a></li> </ul> </nav> <p class="astro-credit"> <a href="https://astro.build">
+<script is:inline="true" src="/scripts/audio-engine.js"></script> </article> <section id="comentarios-seccion" aria-labelledby="titulo-comentarios" style="margin-top: 40px; border-top: 2px solid var(--border-color); padding-top: 20px;"> <h2 id="titulo-comentarios">Comentarios</h2> <form id="form-comentario" style="display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin-bottom: 30px;"> <input type="hidden" id="parent-id" value=""> <div id="respondiendo-a" hidden style="font-size: 0.9rem; color: var(--accent-color);">
+Respondiendo a <strong id="nombre-padre"></strong> <button type="button" id="cancelar-respuesta" style="margin-left: 8px; font-size: 0.85rem;">Cancelar</button> </div> <div> <label for="autor-comentario">Nombre:</label><br> <input id="autor-comentario" type="text" required maxlength="60" placeholder="Tu nombre o apodo" style="width: 100%; padding: 8px; margin-top: 4px;"> </div> <div> <label for="texto-comentario">Comentario:</label><br> <textarea id="texto-comentario" rows="4" required maxlength="2000" placeholder="Escribí lo que quieras..." style="width: 100%; padding: 8px; margin-top: 4px;"></textarea> </div> <details style="font-size: 0.85rem;"> <summary style="cursor: pointer;">Soy el autor de la página</summary> <div style="margin-top: 6px;"> <label for="clave-autor">Clave de autor:</label> <input id="clave-autor" type="password" placeholder="Opcional" style="padding: 4px 8px; margin-left: 6px;"> </div> </details> <div> <button type="submit" id="btn-enviar-comentario">Publicar comentario</button> <span id="estado-comentario" style="margin-left: 10px; font-size: 0.9rem;"></span> </div> </form> <div id="lista-comentarios"> <p>Cargando comentarios...</p> </div> </section> <script>(function(){const postId = "guias-de-audio";
+const SUPABASE_URL = "https://trytonoaxgyhgwtldcvs.supabase.co";
+const SUPABASE_KEY = "sb_publishable_hNOt6I1hHff7rS-GL9sO1w_B3YNB1mA";
+
+  const headers = {
+    'apikey': SUPABASE_KEY,
+    'Content-Type': 'application/json',
+  };
+
+  const LS_TOKENS = 'blog_comment_tokens';
+  const LS_LIKES = 'blog_comment_likes';
+
+  function getTokens() {
+    try { return JSON.parse(localStorage.getItem(LS_TOKENS) || '{}'); } catch { return {}; }
+  }
+  function saveToken(id, token) {
+    const tokens = getTokens();
+    tokens[id] = token;
+    localStorage.setItem(LS_TOKENS, JSON.stringify(tokens));
+  }
+  function getLikes() {
+    try { return JSON.parse(localStorage.getItem(LS_LIKES) || '[]'); } catch { return []; }
+  }
+  function saveLike(id) {
+    const likes = getLikes();
+    if (!likes.includes(id)) {
+      likes.push(id);
+      localStorage.setItem(LS_LIKES, JSON.stringify(likes));
+    }
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, (c) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  }
+
+  function formatearFechaHora(iso) {
+    return new Date(iso).toLocaleString('es-AR', {
+      day: '2-digit', month: '2-digit', year: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+  }
+
+  async function cargarComentarios() {
+    const contenedor = document.getElementById('lista-comentarios');
+    try {
+      const url = `${SUPABASE_URL}/rest/v1/comentarios?post_id=eq.${encodeURIComponent(postId)}&select=id,parent_id,autor,contenido,es_autor,likes,created_at&order=created_at.asc`;
+      const res = await fetch(url, { headers });
+      if (!res.ok) throw new Error('Error al cargar');
+      const datos = await res.json();
+      document.getElementById('titulo-comentarios').textContent = `Comentarios (${datos.length})`;
+
+      if (datos.length === 0) {
+        contenedor.innerHTML = '<p>Todavía no hay comentarios. ¡Sé el primero!</p>';
+        return;
+      }
+
+      const tokens = getTokens();
+      const likesDados = getLikes();
+      const raices = datos.filter((c) => !c.parent_id);
+      const respuestasPorPadre = {};
+      datos.filter((c) => c.parent_id).forEach((c) => {
+        if (!respuestasPorPadre[c.parent_id]) respuestasPorPadre[c.parent_id] = [];
+        respuestasPorPadre[c.parent_id].push(c);
+      });
+
+      function renderComentario(c, esRespuesta = false) {
+        const esMio = Boolean(tokens[c.id]);
+        const yaDiLike = likesDados.includes(c.id);
+        const badgeAutor = c.es_autor
+          ? ' <span style="background: var(--accent-color); color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">Autor</span>'
+          : '';
+        const estilo = esRespuesta
+          ? 'margin-left: 24px; border-left: 2px solid var(--border-color); padding-left: 14px; margin-top: 12px;'
+          : 'border: 1px solid var(--border-color); padding: 14px; border-radius: 6px; margin-bottom: 16px;';
+
+        const hijosHtml = (respuestasPorPadre[c.id] || []).map((h) => renderComentario(h, true)).join('');
+
+        return `
+          <article style="${estilo}" data-id="${c.id}">
+            <div style="font-size: 0.9rem; margin-bottom: 6px;">
+              <strong>${escapeHtml(c.autor)}</strong>${badgeAutor}
+              <span style="opacity: 0.7; margin-left: 8px;">${formatearFechaHora(c.created_at)}</span>
+            </div>
+            <p class="contenido-comentario" style="white-space: pre-wrap; margin: 8px 0;">${escapeHtml(c.contenido)}</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; font-size: 0.85rem;">
+              <button type="button" class="btn-like" data-id="${c.id}" ${yaDiLike ? 'disabled' : ''}>
+                👍 ${c.likes}
+              </button>
+              ${!esRespuesta ? `<button type="button" class="btn-responder" data-id="${c.id}" data-autor="${escapeHtml(c.autor)}">Responder</button>` : ''}
+              ${esMio ? `<button type="button" class="btn-editar" data-id="${c.id}">Editar</button>` : ''}
+              ${esMio ? `<button type="button" class="btn-borrar" data-id="${c.id}">Borrar</button>` : ''}
+            </div>
+            ${hijosHtml}
+          </article>
+        `;
+      }
+
+      contenedor.innerHTML = raices.map((r) => renderComentario(r, false)).join('');
+      enlazarEventos();
+    } catch {
+      contenedor.innerHTML = '<p>No se pudieron cargar los comentarios en este momento.</p>';
+    }
+  }
+
+  function enlazarEventos() {
+    document.querySelectorAll('.btn-like').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const id = btn.dataset.id;
+        btn.disabled = true;
+        await fetch(`${SUPABASE_URL}/rest/v1/rpc/dar_like`, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({ p_id: id }),
+        });
+        saveLike(id);
+        cargarComentarios();
+      });
+    });
+
+    document.querySelectorAll('.btn-responder').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.getElementById('parent-id').value = btn.dataset.id;
+        document.getElementById('nombre-padre').textContent = btn.dataset.autor;
+        document.getElementById('respondiendo-a').hidden = false;
+        document.getElementById('texto-comentario').focus();
+      });
+    });
+
+    document.querySelectorAll('.btn-editar').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const id = btn.dataset.id;
+        const token = getTokens()[id];
+        const actual = btn.closest('article').querySelector('.contenido-comentario').textContent;
+        const nuevo = prompt('Editar comentario:', actual);
+        if (!nuevo || nuevo.trim() === actual.trim()) return;
+        await fetch(`${SUPABASE_URL}/rest/v1/rpc/editar_comentario`, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({ p_id: id, p_token: token, p_contenido: nuevo.trim() }),
+        });
+        cargarComentarios();
+      });
+    });
+
+    document.querySelectorAll('.btn-borrar').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        if (!confirm('¿Seguro que querés borrar este comentario?')) return;
+        const id = btn.dataset.id;
+        const token = getTokens()[id];
+        await fetch(`${SUPABASE_URL}/rest/v1/rpc/borrar_comentario`, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({ p_id: id, p_token: token }),
+        });
+        cargarComentarios();
+      });
+    });
+  }
+
+  document.getElementById('cancelar-respuesta').addEventListener('click', () => {
+    document.getElementById('parent-id').value = '';
+    document.getElementById('respondiendo-a').hidden = true;
+  });
+
+  document.getElementById('form-comentario').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const autor = document.getElementById('autor-comentario').value.trim();
+    const contenido = document.getElementById('texto-comentario').value.trim();
+    const parentId = document.getElementById('parent-id').value || null;
+    const claveAutor = document.getElementById('clave-autor').value.trim();
+    const estado = document.getElementById('estado-comentario');
+    const btn = document.getElementById('btn-enviar-comentario');
+
+    if (!autor || !contenido) return;
+    btn.disabled = true;
+    estado.textContent = 'Publicando...';
+
+    const token = crypto.randomUUID();
+    try {
+      let res;
+      if (claveAutor) {
+        res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/publicar_como_autor`, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            p_post_id: postId,
+            p_parent_id: parentId,
+            p_autor: autor,
+            p_contenido: contenido,
+            p_token: token,
+            p_clave_admin: claveAutor,
+          }),
+        });
+        if (!res.ok) throw new Error('Clave de autor incorrecta');
+        const idCreado = await res.json();
+        saveToken(idCreado, token);
+      } else {
+        res = await fetch(`${SUPABASE_URL}/rest/v1/comentarios`, {
+          method: 'POST',
+          headers: { ...headers, 'Prefer': 'return=representation' },
+          body: JSON.stringify({
+            post_id: postId,
+            parent_id: parentId,
+            autor,
+            contenido,
+            delete_token: token,
+          }),
+        });
+        if (!res.ok) throw new Error('Error al publicar');
+        const [creado] = await res.json();
+        if (creado?.id) saveToken(creado.id, token);
+      }
+
+      document.getElementById('texto-comentario').value = '';
+      document.getElementById('parent-id').value = '';
+      document.getElementById('respondiendo-a').hidden = true;
+      estado.textContent = '¡Publicado!';
+      setTimeout(() => { estado.textContent = ''; }, 3000);
+      cargarComentarios();
+    } catch (err) {
+      estado.textContent = err.message || 'Error al publicar.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  cargarComentarios();
+})();</script> </main> <footer role="contentinfo" aria-label="Pie de página"> <div class="footer-container"> <p><strong>Kevin O'Higgins</strong> - 2026</p> <nav aria-label="Redes sociales y contacto rápido"> <ul class="social-links"> <li><a href="https://www.instagram.com/kev_ohiggins/">Instagram</a></li> <li><a href="https://x.com/Kevin_OHiggins">Twitter</a></li> <li><a href="https://www.facebook.com/profile.php?id=100009080325662">Facebook</a></li> <li><a href="/contactame">Contacto y Apoyo</a></li> </ul> </nav> <p class="astro-credit"> <a href="https://astro.build">
 Sitio creado con Astro
 </a> </p> </div> </footer> <script src="/scripts/main.js"></script></body> </html>
