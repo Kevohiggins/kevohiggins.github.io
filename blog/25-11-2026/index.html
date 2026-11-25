@@ -13,7 +13,19 @@
 Activar alto contraste
 </button> </div> <nav aria-label="Menú principal"> <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" class="boton-hamburguesa">
 Menú ☰
-</button> <ul id="nav-list" class="nav-links"> <li><a href="/">Inicio</a></li> <li><a href="/blog">Blog</a></li> <li><a href="/sobre-mi">Sobre mí</a></li> <li><a href="/covers">Covers</a></li> <li> <details> <summary style="cursor: pointer;">Guías</summary> <ul style="list-style: none; padding-left: 14px; margin-top: 6px; display: flex; flex-direction: column; gap: 6px;"> <li><a href="/guias-de-texto">Guías de texto</a></li> <li><a href="/guias-de-audio">Guías de Audio</a></li> </ul> </details> </li> <li><a href="/programas">Programas</a></li> <li><a href="/textos">Textos</a></li> <li><a href="/contactame">Contacto y apoyo</a></li> </ul> </nav> </header> <hr aria-hidden="true"> <main role="main" aria-label="Contenido principal"> <article>  <article> <h1>Las crónicas de Kev: La optimización agéntica, la señorita curiosa y la remodelación de la página</h1> <p><small><time datetime="2026-11-25">25/11/2026</time></small></p> <p>Estuve usando un agente de IA pa’ optimizar un poco este cacharro desde el que escribo. Obtuve resultados bastante decentes, me ahorró mucho tiempo. Normalmente tardaría bastante limpiando el sistema a mano.</p>
+</button> <ul id="nav-list" class="nav-links"> <li><a href="/">Inicio</a></li> <li><a href="/blog">Blog</a></li> <li><a href="/sobre-mi">Sobre mí</a></li> <li><a href="/covers">Covers</a></li> <li> <a href="#guias-submenu" id="btn-guias" aria-expanded="false" aria-controls="guias-submenu">Guías</a> <ul id="guias-submenu" hidden style="list-style: none; padding-left: 14px; margin-top: 6px; display: none; flex-direction: column; gap: 6px;"> <li><a href="/guias-de-texto">Guías de texto</a></li> <li><a href="/guias-de-audio">Guías de Audio</a></li> </ul> </li> <li><a href="/programas">Programas</a></li> <li><a href="/textos">Textos</a></li> <li><a href="/contactame">Contacto y apoyo</a></li> </ul> </nav> <script>
+  const btnGuias = document.getElementById('btn-guias');
+  const subGuias = document.getElementById('guias-submenu');
+  if (btnGuias && subGuias) {
+    btnGuias.addEventListener('click', (e) => {
+      e.preventDefault();
+      const abierto = btnGuias.getAttribute('aria-expanded') === 'true';
+      btnGuias.setAttribute('aria-expanded', String(!abierto));
+      subGuias.hidden = abierto;
+      subGuias.style.display = abierto ? 'none' : 'flex';
+    });
+  }
+</script> </header> <hr aria-hidden="true"> <main role="main" aria-label="Contenido principal"> <article>  <article> <h1>Las crónicas de Kev: La optimización agéntica, la señorita curiosa y la remodelación de la página</h1> <p><small><time datetime="2026-11-25">25/11/2026</time></small></p> <p>Estuve usando un agente de IA pa’ optimizar un poco este cacharro desde el que escribo. Obtuve resultados bastante decentes, me ahorró mucho tiempo. Normalmente tardaría bastante limpiando el sistema a mano.</p>
 <p>Ah, ayer una señorita (del apartado presencial, digamos) me dijo que anduvo curioseando por acá.</p>
 <p>Es una nimiedad, pero como esto nació más por mi necesidad de organización y control que para que alguien lo vea, me parece digno de destacarse.</p>
 <p>Igual me hago el sorprendido y en mi perfil de Instagram (demasiado inactivo) esta página está enlazada, no sé qué esperaba.</p>

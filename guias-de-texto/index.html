@@ -13,7 +13,19 @@
 Activar alto contraste
 </button> </div> <nav aria-label="Menú principal"> <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" class="boton-hamburguesa">
 Menú ☰
-</button> <ul id="nav-list" class="nav-links"> <li><a href="/">Inicio</a></li> <li><a href="/blog">Blog</a></li> <li><a href="/sobre-mi">Sobre mí</a></li> <li><a href="/covers">Covers</a></li> <li> <details> <summary style="cursor: pointer;">Guías</summary> <ul style="list-style: none; padding-left: 14px; margin-top: 6px; display: flex; flex-direction: column; gap: 6px;"> <li><a href="/guias-de-texto">Guías de texto</a></li> <li><a href="/guias-de-audio">Guías de Audio</a></li> </ul> </details> </li> <li><a href="/programas">Programas</a></li> <li><a href="/textos">Textos</a></li> <li><a href="/contactame">Contacto y apoyo</a></li> </ul> </nav> </header> <hr aria-hidden="true"> <main role="main" aria-label="Contenido principal"> <article> <h1 id="guías-de-texto">Guías de texto</h1>
+</button> <ul id="nav-list" class="nav-links"> <li><a href="/">Inicio</a></li> <li><a href="/blog">Blog</a></li> <li><a href="/sobre-mi">Sobre mí</a></li> <li><a href="/covers">Covers</a></li> <li> <a href="#guias-submenu" id="btn-guias" aria-expanded="false" aria-controls="guias-submenu">Guías</a> <ul id="guias-submenu" hidden style="list-style: none; padding-left: 14px; margin-top: 6px; display: none; flex-direction: column; gap: 6px;"> <li><a href="/guias-de-texto">Guías de texto</a></li> <li><a href="/guias-de-audio">Guías de Audio</a></li> </ul> </li> <li><a href="/programas">Programas</a></li> <li><a href="/textos">Textos</a></li> <li><a href="/contactame">Contacto y apoyo</a></li> </ul> </nav> <script>
+  const btnGuias = document.getElementById('btn-guias');
+  const subGuias = document.getElementById('guias-submenu');
+  if (btnGuias && subGuias) {
+    btnGuias.addEventListener('click', (e) => {
+      e.preventDefault();
+      const abierto = btnGuias.getAttribute('aria-expanded') === 'true';
+      btnGuias.setAttribute('aria-expanded', String(!abierto));
+      subGuias.hidden = abierto;
+      subGuias.style.display = abierto ? 'none' : 'flex';
+    });
+  }
+</script> </header> <hr aria-hidden="true"> <main role="main" aria-label="Contenido principal"> <article> <h1 id="guías-de-texto">Guías de texto</h1>
 <p>Acá iré posteando las guías que escriba (una cada tres años). Generalmente estarán conectadas con la accesibilidad en videojuegos para cegatos.</p>
 <hr/>
 <h2 id="lunatranslator-2025">LunaTranslator (2025)</h2>

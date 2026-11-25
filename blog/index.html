@@ -13,7 +13,19 @@
 Activar alto contraste
 </button> </div> <nav aria-label="Menú principal"> <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" class="boton-hamburguesa">
 Menú ☰
-</button> <ul id="nav-list" class="nav-links"> <li><a href="/">Inicio</a></li> <li><a href="/blog">Blog</a></li> <li><a href="/sobre-mi">Sobre mí</a></li> <li><a href="/covers">Covers</a></li> <li> <details> <summary style="cursor: pointer;">Guías</summary> <ul style="list-style: none; padding-left: 14px; margin-top: 6px; display: flex; flex-direction: column; gap: 6px;"> <li><a href="/guias-de-texto">Guías de texto</a></li> <li><a href="/guias-de-audio">Guías de Audio</a></li> </ul> </details> </li> <li><a href="/programas">Programas</a></li> <li><a href="/textos">Textos</a></li> <li><a href="/contactame">Contacto y apoyo</a></li> </ul> </nav> </header> <hr aria-hidden="true"> <main role="main" aria-label="Contenido principal"> <article>  <h1>Blog</h1> <p>Novedades, actualizaciones y textos donde me explayo un poco más.</p> <p> <label for="buscador-blog">Buscar entradas:</label><br> <input id="buscador-blog" type="search" placeholder="Filtrar por título, fecha o contenido..." style="width: 100%; max-width: 400px; padding: 8px; margin-top: 6px;"> </p> <div id="lista-blog"> <article class="entrada-blog" data-buscar="las crónicas de kev: la optimización agéntica, la señorita curiosa y la remodelación de la página 25/11/2026 espero que alguien haya entendido la referencia en el título. igual sí, esta vez hay mucho texto, así que aprovecho para estrenar los saltos. estuve usando un agente de ia pa' optimizar un poco este cacharro desde el que escribo. obtuve resultados bastante decentes, me ahorró mucho tiempo. normalmente tardaría bastante limpiando el sistema a mano.
+</button> <ul id="nav-list" class="nav-links"> <li><a href="/">Inicio</a></li> <li><a href="/blog">Blog</a></li> <li><a href="/sobre-mi">Sobre mí</a></li> <li><a href="/covers">Covers</a></li> <li> <a href="#guias-submenu" id="btn-guias" aria-expanded="false" aria-controls="guias-submenu">Guías</a> <ul id="guias-submenu" hidden style="list-style: none; padding-left: 14px; margin-top: 6px; display: none; flex-direction: column; gap: 6px;"> <li><a href="/guias-de-texto">Guías de texto</a></li> <li><a href="/guias-de-audio">Guías de Audio</a></li> </ul> </li> <li><a href="/programas">Programas</a></li> <li><a href="/textos">Textos</a></li> <li><a href="/contactame">Contacto y apoyo</a></li> </ul> </nav> <script>
+  const btnGuias = document.getElementById('btn-guias');
+  const subGuias = document.getElementById('guias-submenu');
+  if (btnGuias && subGuias) {
+    btnGuias.addEventListener('click', (e) => {
+      e.preventDefault();
+      const abierto = btnGuias.getAttribute('aria-expanded') === 'true';
+      btnGuias.setAttribute('aria-expanded', String(!abierto));
+      subGuias.hidden = abierto;
+      subGuias.style.display = abierto ? 'none' : 'flex';
+    });
+  }
+</script> </header> <hr aria-hidden="true"> <main role="main" aria-label="Contenido principal"> <article>  <h1>Blog</h1> <p>Novedades, actualizaciones y textos donde me explayo un poco más.</p> <p> <label for="buscador-blog">Buscar entradas:</label><br> <input id="buscador-blog" type="search" placeholder="Filtrar por título, fecha o contenido..." style="width: 100%; max-width: 400px; padding: 8px; margin-top: 6px;"> </p> <div id="lista-blog"> <article class="entrada-blog" data-buscar="las crónicas de kev: la optimización agéntica, la señorita curiosa y la remodelación de la página 25/11/2026 espero que alguien haya entendido la referencia en el título. igual sí, esta vez hay mucho texto, así que aprovecho para estrenar los saltos. estuve usando un agente de ia pa' optimizar un poco este cacharro desde el que escribo. obtuve resultados bastante decentes, me ahorró mucho tiempo. normalmente tardaría bastante limpiando el sistema a mano.
 
 ah, ayer una señorita (del apartado presencial, digamos) me dijo que anduvo curioseando por acá.
 

@@ -13,7 +13,19 @@
 Activar alto contraste
 </button> </div> <nav aria-label="Menú principal"> <button id="menu-btn" aria-expanded="false" aria-controls="nav-list" class="boton-hamburguesa">
 Menú ☰
-</button> <ul id="nav-list" class="nav-links"> <li><a href="/">Inicio</a></li> <li><a href="/blog">Blog</a></li> <li><a href="/sobre-mi">Sobre mí</a></li> <li><a href="/covers">Covers</a></li> <li> <details> <summary style="cursor: pointer;">Guías</summary> <ul style="list-style: none; padding-left: 14px; margin-top: 6px; display: flex; flex-direction: column; gap: 6px;"> <li><a href="/guias-de-texto">Guías de texto</a></li> <li><a href="/guias-de-audio">Guías de Audio</a></li> </ul> </details> </li> <li><a href="/programas">Programas</a></li> <li><a href="/textos">Textos</a></li> <li><a href="/contactame">Contacto y apoyo</a></li> </ul> </nav> </header> <hr aria-hidden="true"> <main role="main" aria-label="Contenido principal"> <article> <h1 id="guías-de-audio">Guías de Audio</h1>
+</button> <ul id="nav-list" class="nav-links"> <li><a href="/">Inicio</a></li> <li><a href="/blog">Blog</a></li> <li><a href="/sobre-mi">Sobre mí</a></li> <li><a href="/covers">Covers</a></li> <li> <a href="#guias-submenu" id="btn-guias" aria-expanded="false" aria-controls="guias-submenu">Guías</a> <ul id="guias-submenu" hidden style="list-style: none; padding-left: 14px; margin-top: 6px; display: none; flex-direction: column; gap: 6px;"> <li><a href="/guias-de-texto">Guías de texto</a></li> <li><a href="/guias-de-audio">Guías de Audio</a></li> </ul> </li> <li><a href="/programas">Programas</a></li> <li><a href="/textos">Textos</a></li> <li><a href="/contactame">Contacto y apoyo</a></li> </ul> </nav> <script>
+  const btnGuias = document.getElementById('btn-guias');
+  const subGuias = document.getElementById('guias-submenu');
+  if (btnGuias && subGuias) {
+    btnGuias.addEventListener('click', (e) => {
+      e.preventDefault();
+      const abierto = btnGuias.getAttribute('aria-expanded') === 'true';
+      btnGuias.setAttribute('aria-expanded', String(!abierto));
+      subGuias.hidden = abierto;
+      subGuias.style.display = abierto ? 'none' : 'flex';
+    });
+  }
+</script> </header> <hr aria-hidden="true"> <main role="main" aria-label="Contenido principal"> <article> <h1 id="guías-de-audio">Guías de Audio</h1>
 <p>Acá iré posteando las guías que grabe (una cada diez años). Están enfocadas en juegos o en programas para cegatos, como las de texto.</p>
 <div style="margin: 20px 0; padding: 10px; border: 1px solid #ccc; border-radius: 8px;"><label style="cursor: pointer; font-weight: bold;"><input type="checkbox" id="autoPlayCheck" checked style="transform: scale(1.2); margin-right: 10px;"/><p>Reproducción automática</p></label></div>
 <hr/>
